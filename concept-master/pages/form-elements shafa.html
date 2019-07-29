@@ -453,7 +453,7 @@ John Abraham</h5>
                                 <div class="card">
                                     <h5 class="card-header">Pemesanan Buku</h5>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="upload.php" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label for="inputText3" class="col-form-label">Nama Lengkap</label>
                                                 <input id="inputText3" type="text" class="form-control">
@@ -512,7 +512,7 @@ John Abraham</h5>
                                                 <input id="alamat" type="text" placeholder="Jl. Phiwiki no. 17, RT 013, RW 005, Kelurahan Lebung Gajah, Kecamatan Karimata, Bandung, 40135" class="form-control">
                                                 <p>Masukkan alamat lengkap beserta kode pos sesuai contoh.</p>
                                             </div>
-                                            </div>
+                                            <input type="submit" value="Submit" class="form-control" name="submit">
                                         </form>
                                     </div>
                                 </div>
