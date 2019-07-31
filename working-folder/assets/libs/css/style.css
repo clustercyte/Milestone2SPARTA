@@ -7017,3 +7017,16 @@ login
 /*-----------------------
 end login
 -------------------------*/
+
+/*--------- data pre order -------- */
+
+.card-header-datapreorder {
+
+    border: none;
+}
+.table-datapreorder thead th {
+
+    border:none;
+}
+
+/*--------- end data pre order -------- */
