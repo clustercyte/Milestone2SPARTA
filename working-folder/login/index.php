@@ -1,3 +1,5 @@
+<?php include "../assets/includes/functions.php"; ?>
+
 <!doctype html>
 <html lang="en">
  
@@ -39,19 +41,19 @@
                     <div class="card no-margin">
                         <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/phiwiki.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
                         <div class="card-body">
-                            <form>
+                            <form action="login.php" method="post">
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
+                                    <input class="form-control form-control-lg" id="username" type="text" name="user_uname" placeholder="Username" autocomplete="off">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" id="password" type="password" placeholder="Password">
+                                    <input class="form-control form-control-lg" id="password" type="password" name="user_pass" placeholder="Password">
                                 </div>
                                 <div class="form-group">
                                     <label class="custom-control custom-checkbox">
                                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block" name="submit_login">Sign in</button>
                             </form>
                         </div>
                         <div class="card-footer bg-white p-0  card-footer-login">
@@ -80,3 +82,12 @@
 </body>
  
 </html>
+
+<?php 
+
+if (isset($_GET['pop']) && !empty($_GET['pop'])) {
+
+	popOut($_GET['pop']);
+}
+
+?>
