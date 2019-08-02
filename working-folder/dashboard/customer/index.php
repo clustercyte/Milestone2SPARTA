@@ -508,28 +508,28 @@ John Abraham</h5>
                                 <div class="card">
                                     <h5 class="card-header">Pemesanan Buku</h5>
                                     <div class="card-body">
-                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        <form action="order.php" method="post">
                                             <div class="form-group">
                                                 <label for="inputText3" class="col-form-label">Nama Lengkap</label>
-                                                <input id="inputText3" type="text" class="form-control">
+                                                <input id="inputText3" type="text" class="form-control" name="cs_name">
                                             </div>
                                             <div class="form-group">
                                                 <label>Institusi</label><br>
                                                 <label class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="radio-inline" class="custom-control-input" id="in-itb" checked><span class="custom-control-label">ITB</span>
+                                                    <input type="radio" name="cs_itb_or_not" class="custom-control-input" id="in-itb" value="itb" checked><span class="custom-control-label">ITB</span>
                                                 </label>
                                                 <label class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="radio-inline" class="custom-control-input" id="out-itb"><span class="custom-control-label">Luar ITB</span>
+                                                    <input type="radio" name="cs_itb_or_not" class="custom-control-input" id="out-itb" value="non-itb"><span class="custom-control-label">Luar ITB</span>
                                                 </label> 
                                             </div>
                                             <div class="form-group">
                                                 <label for="institusi" class="col-form-label">Nama Institusi</label>
-                                                <input id="institusi" type="text" class="form-control">
+                                                <input id="institusi" type="text" class="form-control" name="cs_institution">
                                             </div>
                                             <div class="form-group" id="select-faculty">
                                                 <label for="fakultas" class="col-form-label">Fakultas
                                                 </label>
-                                                <select class="form-control" id="fakultas">
+                                                <select class="form-control" id="fakultas" name="cs_faculty">
                                                     <option>Pilih Fakultas</option>
                                                     <option>STEI</option>
                                                     <option>SF</option>
@@ -547,27 +547,27 @@ John Abraham</h5>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputEmail">Alamat E-mail</label>
-                                                <input id="inputEmail" type="email" placeholder="annisarahim@example.com" class="form-control">
+                                                <input id="inputEmail" type="email" placeholder="annisarahim@example.com" class="form-control" name="cs_email">
                                                 <p>Pastikan e-mail yang Anda gunakan aktif.</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputText4" class="col-form-label">Jumlah Buku yang Dipesan</label>
-                                                <input id="inputText4" type="number" class="form-control">
+                                                <input id="inputText4" type="number" class="form-control" name="cs_order_amount">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputText4" class="col-form-label">No. Telepon</label>
-                                                <input id="inputText4" type="text" class="form-control">
+                                                <input id="inputText4" type="text" class="form-control" name="cs_phone">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputline"class="col-form-label">ID LINE</label>
-                                                <input id="inputline" type="text" class="form-control">
+                                                <input id="inputline" type="text" class="form-control" name="cs_line">
                                             </div>
                                             <div class="form-group">
                                                 <label for="alamat" class="col-form-label">Alamat Pengiriman </label>
-                                                <input id="alamat" type="text" placeholder="Jl. Phiwiki no. 17, RT 013, RW 005, Kelurahan Lebung Gajah, Kecamatan Karimata, Bandung, 40135" class="form-control">
+                                                <input id="alamat" type="text" placeholder="Jl. Phiwiki no. 17, RT 013, RW 005, Kelurahan Lebung Gajah, Kecamatan Karimata, Bandung, 40135" class="form-control" name="cs_address">
                                                 <p>Masukkan alamat lengkap beserta kode pos sesuai contoh.</p>
                                             </div>
-                                            <input type="submit" value="Submit" class="btn btn-primary" name="submit">
+                                            <input type="submit" value="Submit" class="btn btn-primary" name="submit_order">
                                         </form>
                                     </div>
                                 </div>
