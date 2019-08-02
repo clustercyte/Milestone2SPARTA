@@ -33,6 +33,22 @@ class Po {
 
         return $row;
     }
+
+    function hasOrdered($user_id) {
+        $query = "SELECT user_id FROM preorders WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $user_id;
+        $stmt->execute();
+        $row = $stmt->get_result()->num_rows;
+        $stmt->close();
+
+        if ($row > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 }
 
 class Users {

@@ -1,8 +1,12 @@
 <?php include "../../assets/includes/functions.php"; ?>
 <?php 
 
+session_start();
+
 $po = new Po; 
 $poStatus = $po->getPoStatus();
+$hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
+echo "<script>alert('".$hasOrdered."')</script>";
 
 ?> 
 
@@ -438,6 +442,94 @@ John Abraham</h5>
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
+        
+        <?php if ($hasOrdered) { ?> 
+            
+        <div class="dashboard-wrapper">
+	        <div class="dashboard-influence">
+	            <div class="container-fluid dashboard-content">
+	                <!-- ============================================================== -->
+	                <!-- pageheader  -->
+	                <!-- ============================================================== -->
+	                <div class="row">
+	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                        <div class="page-header">
+	                            <h3 class="mb-2">Bukti Pembayaran</h3>
+	                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+	                            <div class="page-breadcrumb">
+	                                <nav aria-label="breadcrumb">
+	                                    <ol class="breadcrumb">
+	                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+	                                        <li class="breadcrumb-item active" aria-current="page">Bukti Pembayaran</li>
+	                                    </ol>
+	                                </nav>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <!-- ============================================================== -->
+	                <!-- end pageheader  -->
+	                <!-- ============================================================== -->
+	                <!-- ============================================================== -->
+	                <!-- content  -->
+	                <!-- ============================================================== -->
+	                <!-- ============================================================== -->
+	                <!-- influencer profile  -->
+	                <!-- ============================================================== -->
+	                <div class="row">
+	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+	                        <div class="card influencer-profile-data">
+	                            <div class="card-body">
+	                                <div class="row">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+											<form action="upload.php" method="post" enctype="multipart/form-data">
+											Unggah foto bukti pembayaran :	
+											<input type="file" name="fileToUpload" id="fileToUpload">
+											<br>
+											<br>
+											<input type="submit" value="Submit" class="btn btn-primary" name="submit">
+											</form>
+										</div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- ============================================================== -->
+	                    <!-- end influencer profile  -->
+	                    <!-- ============================================================== -->
+	                            <!-- ============================================================== -->
+	                            <!-- footer -->
+	                            <!-- ============================================================== -->
+	                            <div class="footer">
+	                                <div class="container-fluid">
+	                                    <div class="row">
+	                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+	                                           Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+	                                        </div>
+	                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+	                                            <div class="text-md-right footer-links d-none d-sm-block">
+	                                                <a href="javascript: void(0);">About</a>
+	                                                <a href="javascript: void(0);">Support</a>
+	                                                <a href="javascript: void(0);">Contact Us</a>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <!-- ============================================================== -->
+	                            <!-- end footer -->
+	                            <!-- ============================================================== -->
+	                        </div>
+	                        <!-- ============================================================== -->
+	                        <!-- end wrapper  -->
+	                        <!-- ============================================================== -->
+						</div>
+						</div>
+						
+						</div>    
+
+        <?php } else { ?> 
+            
         <?php if ($poStatus['po_status'] == 0) { ?> 
         
         <div class="dashboard-wrapper">
@@ -603,7 +695,10 @@ John Abraham</h5>
         </div>
         
         <?php } ?>
-    </div>
+    </div>    
+            
+        <?php } ?>
+
     <!-- ============================================================== -->
     <!-- end main wrapper -->
     <!-- ============================================================== -->
