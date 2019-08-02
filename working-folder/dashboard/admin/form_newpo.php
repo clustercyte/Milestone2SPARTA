@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Form Validation</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown nav-user">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3 class="mb-0 nav-user-name"><img src="../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"> John Abraham</h3></a>
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3 class="mb-0 nav-user-name"><img src="../../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"> John Abraham</h3></a>
                             <div class="dropdown-menu dropdown-menu-left nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
                                     <span class="status"></span><span class="ml-2">User</span>
@@ -106,17 +106,17 @@
                             <div class="card">
                                 <!-- <h5 class="card-header">Bootstrap Validation Form</h5> -->
                                 <div class="card-body">
-                                    <form class="needs-validation" novalidate>
+                                    <form class="needs-validation" action="newpo.php" method="post" novalidate>
                                         <div class="form-group">
                                             <label for="validationCustom01">Nama PO</label>
-                                            <input type="text" class="form-control" id="validationCustom01" placeholder="PO 9999" required>
+                                            <input type="text" class="form-control" id="validationCustom01" name="po_name" placeholder="PO 9999" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="validationCustom02">Tanggal Berakhir</label>
-                                            <input type="text" class="form-control" id="validationCustom02" placeholder="DD/MM/YYYY" required>
+                                            <input type="date" class="form-control" id="validationCustom02" name="po_closed" placeholder="MM/DD/YYYY" required>
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn btn-primary" type="submit">Buat PO</button>
+                                            <button class="btn btn-primary" type="submit" name="submit_newpo">Buat PO</button>
                                         </div>
                                     </form>
                                 </div>
@@ -155,11 +155,11 @@
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../assets/vendor/parsley/parsley.js"></script>
-    <script src="../assets/libs/js/main-js.js"></script>
+    <script src="../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="../../assets/vendor/parsley/parsley.js"></script>
+    <script src="../../assets/libs/js/main-js.js"></script>
     <script>
     $('#form').parsley();
     </script>

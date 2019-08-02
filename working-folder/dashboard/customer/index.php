@@ -1,3 +1,11 @@
+<?php include "../../assets/includes/functions.php"; ?>
+<?php 
+
+$po = new Po; 
+$poStatus = $po->getPoStatus();
+
+?> 
+
 <!doctype html>
 <html lang="en">
  
@@ -7,12 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
-    <link rel="stylesheet" href="../assets/vendor/inputmask/css/inputmask.css" />
+    <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/libs/css/style.css">
+    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="../../assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
+    <link rel="stylesheet" href="../../assets/vendor/inputmask/css/inputmask.css" />
 </head>
 
 <body>
@@ -45,7 +53,7 @@
                                         <div class="list-group">
                                             <a href="#" class="list-group-item list-group-item-action active">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -53,7 +61,7 @@
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">
 John Abraham</span>is now following you
                                                         <div class="notification-date">2 days ago</div>
@@ -62,7 +70,7 @@ John Abraham</span>is now following you
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -70,7 +78,7 @@ John Abraham</span>is now following you
                                             </a>
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="notification-info">
-                                                    <div class="notification-list-user-img"><img src="../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
+                                                    <div class="notification-list-user-img"><img src="../../assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
                                                     <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
                                                         <div class="notification-date">2 min ago</div>
                                                     </div>
@@ -90,24 +98,24 @@ John Abraham</span>is now following you
                                 <li class="connection-list">
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/github.png" alt="" > <span>Github</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/github.png" alt="" > <span>Github</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/dribbble.png" alt="" > <span>Dribbble</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/dribbble.png" alt="" > <span>Dribbble</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/dropbox.png" alt="" > <span>Dropbox</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/dropbox.png" alt="" > <span>Dropbox</span></a>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                            <a href="#" class="connection-item"><img src="../assets/images/slack.png" alt="" > <span>Slack</span></a>
+                                            <a href="#" class="connection-item"><img src="../../assets/images/slack.png" alt="" > <span>Slack</span></a>
                                         </div>
                                     </div>
                                 </li>
@@ -430,6 +438,42 @@ John Abraham</h5>
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
+        <?php if ($poStatus['po_status'] == 0) { ?> 
+        
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title"> Pemesanan Buku </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3 class="text-center">PO belum dibuka</h3>
+                    </div>
+                </div>
+            </div>
+
+        <?php } elseif ($poStatus['po_status'] == 1) { ?> 
+            
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 <div class="row">
@@ -464,28 +508,28 @@ John Abraham</h5>
                                 <div class="card">
                                     <h5 class="card-header">Pemesanan Buku</h5>
                                     <div class="card-body">
-                                        <form action="upload.php" method="post" enctype="multipart/form-data">
+                                        <form action="order.php" method="post">
                                             <div class="form-group">
                                                 <label for="inputText3" class="col-form-label">Nama Lengkap</label>
-                                                <input id="inputText3" type="text" class="form-control">
+                                                <input id="inputText3" type="text" class="form-control" name="cs_name">
                                             </div>
                                             <div class="form-group">
                                                 <label>Institusi</label><br>
                                                 <label class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">ITB</span>
+                                                    <input type="radio" name="cs_itb_or_not" class="custom-control-input" id="in-itb" value="itb" checked><span class="custom-control-label">ITB</span>
                                                 </label>
                                                 <label class="custom-control custom-radio custom-control-inline">
-                                                    <input type="radio" name="radio-inline" class="custom-control-input"><span class="custom-control-label">Luar ITB</span>
+                                                    <input type="radio" name="cs_itb_or_not" class="custom-control-input" id="out-itb" value="non-itb"><span class="custom-control-label">Luar ITB</span>
                                                 </label> 
                                             </div>
                                             <div class="form-group">
                                                 <label for="institusi" class="col-form-label">Nama Institusi</label>
-                                                <input id="institusi" type="text" class="form-control">
+                                                <input id="institusi" type="text" class="form-control" name="cs_institution">
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" id="select-faculty">
                                                 <label for="fakultas" class="col-form-label">Fakultas
                                                 </label>
-                                                <select class="form-control" id="fakultas">
+                                                <select class="form-control" id="fakultas" name="cs_faculty">
                                                     <option>Pilih Fakultas</option>
                                                     <option>STEI</option>
                                                     <option>SF</option>
@@ -503,27 +547,27 @@ John Abraham</h5>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputEmail">Alamat E-mail</label>
-                                                <input id="inputEmail" type="email" placeholder="annisarahim@example.com" class="form-control">
+                                                <input id="inputEmail" type="email" placeholder="annisarahim@example.com" class="form-control" name="cs_email">
                                                 <p>Pastikan e-mail yang Anda gunakan aktif.</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputText4" class="col-form-label">Jumlah Buku yang Dipesan</label>
-                                                <input id="inputText4" type="number" class="form-control">
+                                                <input id="inputText4" type="number" class="form-control" name="cs_order_amount">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputText4" class="col-form-label">No. Telepon</label>
-                                                <input id="inputText4" type="text" class="form-control">
+                                                <input id="inputText4" type="text" class="form-control" name="cs_phone">
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputline"class="col-form-label">ID LINE</label>
-                                                <input id="inputline" type="text" class="form-control">
+                                                <input id="inputline" type="text" class="form-control" name="cs_line">
                                             </div>
                                             <div class="form-group">
                                                 <label for="alamat" class="col-form-label">Alamat Pengiriman </label>
-                                                <input id="alamat" type="text" placeholder="Jl. Phiwiki no. 17, RT 013, RW 005, Kelurahan Lebung Gajah, Kecamatan Karimata, Bandung, 40135" class="form-control">
+                                                <input id="alamat" type="text" placeholder="Jl. Phiwiki no. 17, RT 013, RW 005, Kelurahan Lebung Gajah, Kecamatan Karimata, Bandung, 40135" class="form-control" name="cs_address">
                                                 <p>Masukkan alamat lengkap beserta kode pos sesuai contoh.</p>
                                             </div>
-                                            <input type="submit" value="Submit" class="btn btn-primary" name="submit">
+                                            <input type="submit" value="Submit" class="btn btn-primary" name="submit_order">
                                         </form>
                                     </div>
                                 </div>
@@ -558,16 +602,18 @@ John Abraham</h5>
             <!-- end footer -->
             <!-- ============================================================== -->
         </div>
+        
+        <?php } ?>
     </div>
     <!-- ============================================================== -->
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../assets/libs/js/main-js.js"></script>
-    <script src="../assets/vendor/inputmask/js/jquery.inputmask.bundle.js"></script>
+    <script src="../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <script src="../../assets/libs/js/main-js.js"></script>
+    <script src="../../assets/vendor/inputmask/js/jquery.inputmask.bundle.js"></script>
     <script>
     $(function(e) {
         "use strict";
@@ -601,7 +647,36 @@ John Abraham</h5>
                 }
             })
     });
+
+    $(document).ready(function() {
+        
+        if ($('#in-itb').is(':checked')) {
+            $('#select-faculty').show();
+        }
+
+        $('#in-itb').click(function(){
+            if ($(this).is(':checked')) {
+                $('#select-faculty').show();
+            }
+        });
+
+        $('#out-itb').click(function(){
+            if ($(this).is(':checked')) {
+                $('#select-faculty').hide();
+            }
+        });
+    });
+
     </script>
 </body>
- 
+
 </html>
+
+<?php 
+
+if (isset($_GET['pop']) && !empty($_GET['pop'])) {
+
+	popOut($_GET['pop']);
+}
+
+?>

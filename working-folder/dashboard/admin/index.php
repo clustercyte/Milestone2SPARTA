@@ -472,10 +472,8 @@ $poStatus = $po->getPoStatus();
                     <!-- end pageheader  -->
                     <!-- ============================================================== -->
                     <div class="container">
-                        <div class="row">
-                            <form class="col-md-12 d-flex justify-content-center" action="buatpo.php" method=post>
-                                <button type="submit" class="btn btn-primary" name="submit_buatpo">Buat PO baru</button>
-                            </form>
+                        <div class="d-flex justify-content-center">
+                            <a href="form_newpo.php" class="btn btn-primary">Buat PO baru</a>
                         </div>
                     </div>
                 </div>
