@@ -13,13 +13,14 @@ if ($poData->num_rows > 0) {
         $cs_id = $row['cs_id'];
         $cs_name = $row['cs_name'];
         $cs_email = $row['cs_email'];
-        $confirm = "Apakah anda yakin ingin menghapus";
+        $confirm = "Apakah anda yakin ingin menghapus ?";
 
         echo "<tr>";
+        echo "<td>$i</td>";
         echo "<td>$cs_name</td>";
         echo "<td>$cs_email</td>";
         echo "<td><a href='#' class='btn btn-primary'>Lihat</a></td>";
-        echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm)'>Delete</a></td>";
+        echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
         echo "</tr>";
 
         $i++;

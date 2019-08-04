@@ -481,12 +481,12 @@ John Abraham</h5>
 	                            <div class="card-body">
 	                                <div class="row">
 										<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-											<form action="upload.php" method="post" enctype="multipart/form-data">
+											<form action="upload_payment.php" method="post" enctype="multipart/form-data">
 											Unggah foto bukti pembayaran :	
-											<input type="file" name="fileToUpload" id="fileToUpload">
+											<input type="file" name="cs_payment" id="cs_payment">
 											<br>
 											<br>
-											<input type="submit" value="Submit" class="btn btn-primary" name="submit">
+											<input type="submit" value="Submit" class="btn btn-primary" name="submit_payment">
 											</form>
 										</div>
 	                                </div>

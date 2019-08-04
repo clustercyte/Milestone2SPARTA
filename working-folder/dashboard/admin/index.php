@@ -518,25 +518,64 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <!-- basic table -->
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div class="card">
-                                <div class="d-flex justify-content-between">
-                                    <h5 class="card-header card-header-datapreorder">Data Pre-Order</h5>
-                                    <h5 class="card-header card-header-datapreorder" id="potime"></h5>
-                                </div>
-                                <div class="card-body">
-                                    <table class="table table-datapreorder">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Nama</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Bukti Bayar</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="table-data-po">
-                                            
-                                        </tbody>
-                                    </table>
+                            <div class="tab-regular">
+                                <ul class="nav nav-tabs " id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tab Title #1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tab Title #2</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        
+                                        <div class="card">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-header card-header-datapreorder">Pesanan</h5>
+                                                <h5 class="card-header card-header-datapreorder" id="potime"></h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-datapreorder">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nama</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Bukti Bayar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="table-data-po">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                        
+                                        <div class="card">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-header card-header-datapreorder">List Pembayaran</h5>
+                                                <h5 class="card-header card-header-datapreorder" id="potime"></h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-datapreorder">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Nama</th>
+                                                            <th scope="col">Email</th>
+                                                            <th scope="col">Bukti Bayar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="table-data-po">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
