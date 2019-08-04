@@ -6,7 +6,6 @@ session_start();
 $po = new Po; 
 $poStatus = $po->getPoStatus();
 $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
-echo "<script>alert('".$hasOrdered."')</script>";
 
 ?> 
 

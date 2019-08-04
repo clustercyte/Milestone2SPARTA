@@ -49,6 +49,22 @@ class Po {
             return FALSE;
         }
     }
+
+    function getPoData() {
+        $query = "SELECT * FROM preorders";
+        $result = mysqli_query($this->conn, $query);
+
+        return $result;
+    }
+
+    function deletePoData($cs_id) {
+        $query = "DELETE FROM preorders WHERE cs_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $cs_id;
+        $stmt->execute();
+        $stmt->close();
+    }
 }
 
 class Users {

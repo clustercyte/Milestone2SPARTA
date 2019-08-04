@@ -3,6 +3,14 @@
 
 $po = new Po; 
 $poStatus = $po->getPoStatus();
+$poData = $po->getPoData();
+
+if (isset($_GET['delete']) && !empty($_GET['delete'])) {
+
+    $po->deletePoData($_GET['delete']);
+    $pop = "Data berhasil dihapus";
+    header("Location: index.php?pop=$pop");
+}
 
 ?> 
 
@@ -513,7 +521,7 @@ $poStatus = $po->getPoStatus();
                             <div class="card">
                                 <div class="d-flex justify-content-between">
                                     <h5 class="card-header card-header-datapreorder">Data Pre-Order</h5>
-                                    <h5 class="card-header card-header-datapreorder">3 Jam 25 Menit</h5>
+                                    <h5 class="card-header card-header-datapreorder" id="potime"></h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-datapreorder">
@@ -525,35 +533,8 @@ $poStatus = $po->getPoStatus();
                                                 <th scope="col">Bukti Bayar</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td><a href="#">Lihat</a></td>
-                                                <td><a href="#">Delete</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td><a href="#">Lihat</a></td>
-                                                <td><a href="#">Delete</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td><a href="#">Lihat</a></td>
-                                                <td><a href="#">Delete</a></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">4</th>
-                                                <td>Naufal</td>
-                                                <td>Jori</td>
-                                                <td><a href="#">Lihat</a></td>
-                                                <td><a href="#">Delete</a></td>
-                                            </tr>
+                                        <tbody id="table-data-po">
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -565,6 +546,74 @@ $poStatus = $po->getPoStatus();
                     </div>
                
             </div>
+                
+            <?php } elseif ($poStatus['po_status'] == 2) { ?> 
+                
+                <div class="dashboard-wrapper">
+            <div class="container-fluid  dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title">Pengambilan </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+             
+                    <div class="row">
+                        <!-- ============================================================== -->
+                        <!-- validation form -->
+                        <!-- ============================================================== -->
+                        <img src="../assets/images/qr-code.png" height="200" width="200">
+
+                        <!-- ============================================================== -->
+                        <!-- end validation form -->
+                        <!-- ============================================================== -->
+                    </div>
+                    
+                    <br>
+
+
+                    <div class="row">
+
+                        <div class="col-md-1">
+                        <label for="inputText3" class="col-form-label">Kode :</label>
+                        </div>
+                        <div class="col-md-1.5">
+                        <div class="p-1 mb-2 bg-dark text-white">Xcspyfz</div>
+                        </div>
+
+                    </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <!-- <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="text-md-right footer-links d-none d-sm-block">
+                                <a href="javascript: void(0);">About</a>
+                                <a href="javascript: void(0);">Support</a>
+                                <a href="javascript: void(0);">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- ============================================================== -->
+            <!-- end footer -->
+            <!-- ============================================================== -->
+        </div>
                 
             <?php } ?>
             <!-- ============================================================== -->
@@ -636,12 +685,39 @@ $poStatus = $po->getPoStatus();
             console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
         });
     });
+
+    $(function() {
+
+        function loadPoTime() {
+            $.ajax({url: "../../assets/includes/potime.php", success: function(result){
+                $("#potime").html(result);
+            }});
+        }
+
+        loadPoTime();
+
+        setInterval(function(){ loadPoTime(); }, 100);
+    });
+
+    $(function() {
+
+        function loadPoData() {
+            $.ajax({url: "display_po.php", success: function(result){
+                $("#table-data-po").html(result);
+            }});
+        }
+
+        loadPoData();
+
+        setInterval(function(){ loadPoData(); }, 100);
+    });
     </script>
 </body>
 </html>
 
 
 <?php 
+
 
 if (isset($_GET['pop']) && !empty($_GET['pop'])) {
 
