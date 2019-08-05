@@ -9,12 +9,12 @@ $sess = new Session;
 $user = new Users;
 $userData = $user->getUserData($_SESSION['loggedInId']);
 
-if ($userData['user_auth'] == 0) {
-    header("Location: dashboard/admin/");
-} elseif ($userData['user_auth'] == 1) {
-    header("Location: dashboard/customer/");
-} else {
+if (!isset($_SESSION['loggedInId'])) {
     header("Location: login/");
+} else if ($userData['user_auth'] == 0) {
+    header("Location: dashboard/admin/");
+} else {
+    header("Location: dashboard/customer/");
 }
 
 ?>

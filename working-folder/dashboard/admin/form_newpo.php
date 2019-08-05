@@ -2,6 +2,18 @@
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
 include __POS__."assets/includes/functions.php"; 
 ?>
+<?php
+
+$sess = new Session;
+
+$user = new Users;
+$userData = $user->getUserData($_SESSION['loggedInId']);
+
+if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_GET['logout']))) {
+	unset($sess->name);
+    header("Location: ".__POS__);
+}
+?>
 <!doctype html>
 <html lang="en">
  
@@ -23,7 +35,7 @@ include __POS__."assets/includes/functions.php";
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include "../navbar";
+			include __POS__."assets/includes/navbar";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -76,7 +88,6 @@ include __POS__."assets/includes/functions.php";
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
                             <h2 class="pageheader-title">Buat PO Baru </h2>
-                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                         </div>
                     </div>
                 </div>
@@ -164,17 +175,6 @@ include __POS__."assets/includes/functions.php";
             });
         }, false);
     })();
-	
-    $(function() {
-
-        function loadUserData() {
-            $.ajax({url: "../display_prof.php", success: function(result){
-                $("#profile").html(result);
-            }});
-        }
-
-        loadUserData();
-    });
     </script>
 </body>
  

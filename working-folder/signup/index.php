@@ -3,6 +3,14 @@ define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_c
 include __POS__."assets/includes/functions.php"; 
 include __POS__."assets/includes/connection.php";
 ?>
+<?php
+
+$sess = new Session;
+
+if (isset($_SESSION['loggedInId'])) {
+	header("Location: ".__POS__);
+}
+?>
 <!doctype html>
 <html lang="en">
  
@@ -47,29 +55,31 @@ include __POS__."assets/includes/connection.php";
                             <p>Please enter your user information.</p>
                         </div>
                         <div class="card-body">
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" type="text" name="user_name" required="" placeholder="Name" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" type="email" name="user_email" required="" placeholder="E-mail" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control form-control-lg" id="pass2" type="password" name="user_pass_c" required="" placeholder="Confirm">
-                            </div>
-                            <div class="form-group pt-2">
-                                <button class="btn btn-block btn-primary" type="submit" name="submit_register">Register My Account</button>
-                            </div>
-                            <div class="form-group">
-                                <label class="custom-control custom-checkbox">
-                                    <input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
-                                </label>
-                            </div>
+                            <form action="login.php" method="post">
+								<div class="form-group">
+									<input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<input class="form-control form-control-lg" type="text" name="user_name" required="" placeholder="Name" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<input class="form-control form-control-lg" type="email" name="user_email" required="" placeholder="E-mail" autocomplete="off">
+								</div>
+								<div class="form-group">
+									<input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password">
+								</div>
+								<div class="form-group">
+									<input class="form-control form-control-lg" id="pass2" type="password" name="user_pass_c" required="" placeholder="Confirm">
+								</div>
+								<div class="form-group pt-2">
+									<button class="btn btn-block btn-primary" type="submit" name="submit_register">Register My Account</button>
+								</div>
+								<div class="form-group">
+									<label class="custom-control custom-checkbox">
+										<input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
+									</label>
+								</div>
+                            </form>
                         </div>
                         <div class="card-footer bg-white">
                             <p>Already member? <a href="../login/" class="text-secondary">Login Here.</a></p>

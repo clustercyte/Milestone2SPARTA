@@ -6,20 +6,12 @@ include __POS__."assets/includes/functions.php";
 
 $sess = new Session;
 
-if (!isset($_SESSION['loggedInId'])) {
-    header("Location: ../../login");
-}
-
-if ($_GET['logout'] == 1) {
-	unset($sess->name);
-    header("Location: ../../login");
-}
-
 $user = new Users;
 $userData = $user->getUserData($_SESSION['loggedInId']);
 
-if ($userData['user_auth'] != 0) {
-    header("Location: ../../");
+if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_GET['logout']))) {
+	unset($sess->name);
+    header("Location: ".__POS__);
 }
 
 $po = new Po; 
@@ -144,14 +136,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="tab-regular">
-                                <ul class="nav nav-tabs " id="myTab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Tab Title #1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tab Title #2</a>
-                                    </li>
-                                </ul>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         
@@ -170,8 +154,38 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                                             <th scope="col">Bukti Bayar</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody id="table-data-po">
-                                                        
+                                                    <tbody>
+                                                        <?php 
+
+															$po = new Po;
+															$poData = $po->getPoData();
+
+															if ($poData->num_rows > 0) {
+
+																$i = 1;
+																while($row = $poData->fetch_assoc()) {
+
+																	$cs_id = $row['cs_id'];
+																	$cs_name = $row['cs_name'];
+																	$cs_email = $row['cs_email'];
+																	$confirm = "Apakah anda yakin ingin menghapus ?";
+
+																	echo "<tr>";
+																	echo "<td>$i</td>";
+																	echo "<td>$cs_name</td>";
+																	echo "<td>$cs_email</td>";
+																	echo "<td><a href='#' class='btn btn-primary'>Lihat</a></td>";
+																	echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
+																	echo "</tr>";
+
+																	$i++;
+																}
+															} else {
+																echo "<td></td>";
+																echo "<td>Belum ada data yang diterima</td>";
+															}
+
+															?>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -254,28 +268,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 
                     </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <!-- <div class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-                            <div class="text-md-right footer-links d-none d-sm-block">
-                                <a href="javascript: void(0);">About</a>
-                                <a href="javascript: void(0);">Support</a>
-                                <a href="javascript: void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- ============================================================== -->
-            <!-- end footer -->
-            <!-- ============================================================== -->
         </div>
                 
             <?php } ?>
@@ -323,30 +315,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         loadPoTime();
 
         setInterval(function(){ loadPoTime(); }, 100);
-    });
-
-    $(function() {
-
-        function loadPoData() {
-            $.ajax({url: "display_po.php", success: function(result){
-                $("#table-data-po").html(result);
-            }});
-        }
-
-        loadPoData();
-
-        setInterval(function(){ loadPoData(); }, 100);
-    });
-	
-    $(function() {
-
-        function loadUserData() {
-            $.ajax({url: "../display_prof.php", success: function(result){
-                $("#profile").html(result);
-            }});
-        }
-
-        loadUserData();
     });
     </script>
 </body>

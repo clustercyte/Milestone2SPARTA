@@ -6,20 +6,12 @@ include __POS__."assets/includes/functions.php";
 
 $sess = new Session;
 
-if (!isset($_SESSION['loggedInId'])) {
-    header("Location: ../../login");
-}
-
-if (isset($_GET['logout'])) {
-	unset($sess->name);
-    header("Location: ../../login");
-}
-
 $user = new Users;
 $userData = $user->getUserData($_SESSION['loggedInId']);
 
-if ($userData['user_auth'] != 1) {
-    header("Location: ../../");
+if (($userData['user_auth'] != 1)or(!isset($_SESSION['loggedInId'])) or(isset($_GET['logout']))) {
+	unset($sess->name);
+    header("Location: ".__POS__);
 }
 
 $po = new Po; 
@@ -264,7 +256,6 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div class="page-header">
                                     <h2 class="pageheader-title"> Pemesanan Buku </h2>
-                                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                                 </div>
                             </div>
                         </div>
@@ -442,17 +433,6 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
                 $('#select-institution').show();
             }
         });
-    });
-	
-    $(function() {
-
-        function loadUserData() {
-            $.ajax({url: "../display_prof.php", success: function(result){
-                $("#profile").html(result);
-            }});
-        }
-
-        loadUserData();
     });
     </script>
 </body>

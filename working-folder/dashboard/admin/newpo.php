@@ -3,6 +3,18 @@ define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_c
 include __POS__."assets/includes/functions.php"; 
 include __POS__."assets/includes/connection.php";
 ?>
+<?php
+
+$sess = new Session;
+
+$user = new Users;
+$userData = $user->getUserData($_SESSION['loggedInId']);
+
+if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
+	unset($sess->name);
+    header("Location: ".__POS__."login");
+}
+?>
 <?php 
 
 if (isset($_POST['submit_newpo'])) {

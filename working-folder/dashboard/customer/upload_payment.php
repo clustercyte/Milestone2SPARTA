@@ -3,9 +3,19 @@ define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_c
 include __POS__."assets/includes/functions.php"; 
 include __POS__."assets/includes/connection.php";
 ?>
-<?php 
+<?php
 
 $sess = new Session;
+
+$user = new Users;
+$userData = $user->getUserData($_SESSION['loggedInId']);
+
+if (($userData['user_auth'] != 1)or(!isset($_SESSION['loggedInId']))) {
+	unset($sess->name);
+    header("Location: ".__POS__);
+}
+?>
+<?php 
 
 $target_dir = "payments/";
 $target_file = $target_dir . basename($_FILES["cs_payment"]["name"]);

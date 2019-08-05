@@ -7,7 +7,7 @@ include __POS__."assets/includes/functions.php";
 $sess = new Session;
 
 if (isset($_SESSION['loggedInId'])) {
-	header("Location: ../");
+	header("Location: ".__POS__);
 }
 ?>
 <!doctype html>
