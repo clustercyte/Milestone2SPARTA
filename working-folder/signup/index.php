@@ -1,7 +1,7 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
-include __POS__."/assets/includes/functions.php"; 
-include __POS__."/assets/includes/connection.php";
+include __POS__."assets/includes/functions.php"; 
+include __POS__."assets/includes/connection.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,7 +12,7 @@ include __POS__."/assets/includes/connection.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
-	<?php include __POS__."/assets/includes/css_loader.php"; ?>
+	<?php include __POS__."assets/includes/css_loader.php"; ?>
     <style>
     html,
     body {

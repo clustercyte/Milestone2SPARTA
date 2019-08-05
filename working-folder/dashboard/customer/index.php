@@ -1,6 +1,6 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
-include __POS__."/assets/includes/functions.php"; 
+include __POS__."assets/includes/functions.php"; 
 ?>
 <?php 
 
@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedInId'])) {
     header("Location: ../../login");
 }
 
-if ($_GET['logout'] == 1) {
+if (isset($_GET['logout'])) {
 	unset($sess->name);
     header("Location: ../../login");
 }
@@ -37,7 +37,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pemesanan Buku Phiwiki</title>
     <!-- Bootstrap CSS -->
-	<?php include __POS__."/assets/includes/css_loader.php"; ?>
+	<?php include __POS__."assets/includes/css_loader.php"; ?>
 </head>
 
 <body>
@@ -49,7 +49,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include "../navbar";
+			include __POS__."assets/includes/navbar";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -387,7 +387,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-	<?php include __POS__."/assets/includes/script_loader.php"; ?>
+	<?php include __POS__."assets/includes/script_loader.php"; ?>
     <script>
     $(function(e) {
         "use strict";

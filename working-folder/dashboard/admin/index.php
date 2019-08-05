@@ -1,6 +1,6 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
-include __POS__."/assets/includes/functions.php"; 
+include __POS__."assets/includes/functions.php"; 
 ?>
 <?php 
 
@@ -42,7 +42,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-	<?php include __POS__."/assets/includes/css_loader.php"; ?>
+	<?php include __POS__."assets/includes/css_loader.php"; ?>
     <title>Data Pre Order</title>
 </head>
 
@@ -55,7 +55,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include __POS__."/assets/includes/navbar";
+			include __POS__."assets/includes/navbar";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -310,7 +310,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     <!-- end main wrapper  -->
     <!-- ============================================================== -->
     <!-- jquery 3.3.1  -->
-	<?php include __POS__."/assets/includes/script_loader.php"; ?>
+	<?php include __POS__."assets/includes/script_loader.php"; ?>
     <script>
     $(function() {
 

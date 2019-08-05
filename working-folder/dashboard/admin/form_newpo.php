@@ -1,6 +1,6 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
-include __POS__."/assets/includes/functions.php"; 
+include __POS__."assets/includes/functions.php"; 
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +11,7 @@ include __POS__."/assets/includes/functions.php";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Buat PO Baru</title>
     <!-- Bootstrap CSS -->
-	<?php include __POS__."/assets/includes/css_loader.php"; ?>
+	<?php include __POS__."assets/includes/css_loader.php"; ?>
 </head>
 
 <body>
@@ -141,7 +141,7 @@ include __POS__."/assets/includes/functions.php";
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-	<?php include __POS__."/assets/includes/script_loader.php"; ?>
+	<?php include __POS__."assets/includes/script_loader.php"; ?>
     <script>
     $('#form').parsley();
     </script>
