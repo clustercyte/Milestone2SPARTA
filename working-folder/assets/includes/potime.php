@@ -51,6 +51,7 @@ if ($timestamp[2] == "am") {
 }
 
 $po = new Po;
+$days = NULL;
 $poStatus = $po->getPoStatus();
 
 $po_closed = $poStatus['po_closed'];

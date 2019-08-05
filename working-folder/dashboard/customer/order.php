@@ -53,6 +53,8 @@ if (isset($_POST['submit_order'])) {
     $stmt->execute();
     $stmt->close();
 
+    header("Location: index.php");
+
 }
 
 ?>

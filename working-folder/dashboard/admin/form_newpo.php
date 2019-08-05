@@ -1,4 +1,4 @@
-<!doctype html>
+x<!doctype html>
 <html lang="en">
 
  
@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Form Validation</title>
+    <title>Buat PO Baru</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -55,17 +55,17 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item ">
-                                <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-1">Pembelian <span class="badge badge-success">6</span></a>
+                                <a class="nav-link active" href="form_newpo.php" aria-expanded="false" aria-controls="submenu-1">Pembelian <span class="badge badge-success">6</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">Pre-Order</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="accordions.html">Data PO</a>
+                                            <a class="nav-link" href="index.php">Data PO</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="tabs.html">Data Lunas</a>
+                                            <a class="nav-link" href="#">Data Lunas</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -109,7 +109,7 @@
                                     <form class="needs-validation" action="newpo.php" method="post" novalidate>
                                         <div class="form-group">
                                             <label for="validationCustom01">Nama PO</label>
-                                            <input type="text" class="form-control" id="validationCustom01" name="po_name" placeholder="PO 9999" required>
+                                            <input type="text" class="form-control" id="validationCustom01" name="po_name" placeholder="PO 01" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="validationCustom02">Tanggal Berakhir</label>
@@ -130,7 +130,7 @@
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
-            <!-- <div class="footer">
+            <<div class="footer">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <!-- ============================================================== -->
             <!-- end footer -->
             <!-- ============================================================== -->

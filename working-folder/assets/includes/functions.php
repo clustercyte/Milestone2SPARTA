@@ -11,8 +11,8 @@ function popOut($pop) {
 class Po {
 
     public $host = "localhost";
-    public $user = "muhmuslim";
-    public $pass = "toor";
+    public $user = "root";
+    public $pass = "";
     public $name = "c_phiwiki";
 
     public $conn;
@@ -70,8 +70,8 @@ class Po {
 class Users {
 
     public $host = "localhost";
-    public $user = "muhmuslim";
-    public $pass = "toor";
+    public $user = "root";
+    public $pass = "";
     public $name = "c_phiwiki";
 
     public $conn;
