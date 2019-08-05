@@ -1,7 +1,26 @@
-<?php include "../../assets/includes/functions.php"; ?>
+<?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+?>
 <?php 
 
-session_start();
+$sess = new Session;
+
+if (!isset($_SESSION['loggedInId'])) {
+    header("Location: ../../login");
+}
+
+if ($_GET['logout'] == 1) {
+	unset($sess->name);
+    header("Location: ../../login");
+}
+
+$user = new Users;
+$userData = $user->getUserData($_SESSION['loggedInId']);
+
+if ($userData['user_auth'] != 1) {
+    header("Location: ../../");
+}
 
 $po = new Po; 
 $poStatus = $po->getPoStatus();
@@ -18,12 +37,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Pemesanan Buku Phiwiki</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" href="../../assets/vendor/datepicker/tempusdominus-bootstrap-4.css" />
-    <link rel="stylesheet" href="../../assets/vendor/inputmask/css/inputmask.css" />
+	<?php include __POS__."/assets/includes/css_loader.php"; ?>
 </head>
 
 <body>
@@ -34,23 +48,9 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
          <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-      <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3 class="mb-0 nav-user-name"><img src="../../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"> John Abraham</h3></a>
-                            <div class="dropdown-menu dropdown-menu-left nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <span class="status"></span><span class="ml-2">User</span>
-                                </div>
-                                <a class="dropdown-item" href="#">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+		<?php
+			include "../navbar";
+		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -94,7 +94,6 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
 	                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 	                        <div class="page-header">
 	                            <h3 class="mb-2">Bukti Pembayaran</h3>
-	                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
 	                            <div class="page-breadcrumb">
 	                                <nav aria-label="breadcrumb">
 	                                    <ol class="breadcrumb">
@@ -388,11 +387,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../../assets/libs/js/main-js.js"></script>
-    <script src="../../assets/vendor/inputmask/js/jquery.inputmask.bundle.js"></script>
+	<?php include __POS__."/assets/includes/script_loader.php"; ?>
     <script>
     $(function(e) {
         "use strict";
@@ -448,7 +443,17 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
             }
         });
     });
+	
+    $(function() {
 
+        function loadUserData() {
+            $.ajax({url: "../display_prof.php", success: function(result){
+                $("#profile").html(result);
+            }});
+        }
+
+        loadUserData();
+    });
     </script>
 </body>
 

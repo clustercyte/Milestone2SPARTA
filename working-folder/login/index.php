@@ -1,5 +1,15 @@
-<?php include "../assets/includes/functions.php"; ?>
+<?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+?>
+<?php
 
+$sess = new Session;
+
+if (isset($_SESSION['loggedInId'])) {
+	header("Location: ../");
+}
+?>
 <!doctype html>
 <html lang="en">
  
@@ -9,10 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+	<?php include __POS__."/assets/includes/css_loader.php"; ?>
     <style>
     html,
     body {
@@ -77,8 +84,7 @@
     <!-- end login page  -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+	<?php include __POS__."/assets/includes/script_loader.php"; ?>
 </body>
  
 </html>

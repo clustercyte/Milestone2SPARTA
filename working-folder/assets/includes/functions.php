@@ -1,5 +1,4 @@
 <?php 
-
 ob_start();
 
 function popOut($pop) {
@@ -94,4 +93,15 @@ class Users {
     }
 }
 
+class Session {
+	
+	public function __construct(){
+		session_start();
+	}
+	
+	public function __unset($arg){
+		setcookie( session_name(), "", time()-3600, "/" );
+		session_destroy();
+	}
+}
 ?>

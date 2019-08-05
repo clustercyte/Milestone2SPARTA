@@ -1,6 +1,8 @@
 <?php 
-
-include "../../assets/includes/functions.php";
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+?>
+<?php 
 
 $po = new Po;
 $poData = $po->getPoData();
@@ -27,5 +29,7 @@ if ($poData->num_rows > 0) {
     }
 } else {
     echo "<td></td>";
-    echo "<td>Belum ada adta yang diterima</td>";
+    echo "<td>Belum ada data yang diterima</td>";
 }
+
+?>

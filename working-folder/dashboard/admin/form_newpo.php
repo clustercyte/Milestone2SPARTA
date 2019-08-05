@@ -1,6 +1,9 @@
+<?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+?>
 <!doctype html>
 <html lang="en">
-
  
 <head>
     <!-- Required meta tags -->
@@ -8,10 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Buat PO Baru</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+	<?php include __POS__."/assets/includes/css_loader.php"; ?>
 </head>
 
 <body>
@@ -22,23 +22,9 @@
          <!-- ============================================================== -->
         <!-- navbar -->
         <!-- ============================================================== -->
-      <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-                        <li class="nav-item dropdown nav-user">
-                            <a class="nav-link" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><h3 class="mb-0 nav-user-name"><img src="../../assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"> John Abraham</h3></a>
-                            <div class="dropdown-menu dropdown-menu-left nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                <div class="nav-user-info">
-                                    <span class="status"></span><span class="ml-2">User</span>
-                                </div>
-                                <a class="dropdown-item" href="#">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+		<?php
+			include "../navbar";
+		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
         <!-- ============================================================== -->
@@ -155,11 +141,7 @@
     <!-- end main wrapper -->
     <!-- ============================================================== -->
     <!-- Optional JavaScript -->
-    <script src="../../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
-    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../assets/vendor/slimscroll/jquery.slimscroll.js"></script>
-    <script src="../../assets/vendor/parsley/parsley.js"></script>
-    <script src="../../assets/libs/js/main-js.js"></script>
+	<?php include __POS__."/assets/includes/script_loader.php"; ?>
     <script>
     $('#form').parsley();
     </script>
@@ -182,6 +164,17 @@
             });
         }, false);
     })();
+	
+    $(function() {
+
+        function loadUserData() {
+            $.ajax({url: "../display_prof.php", success: function(result){
+                $("#profile").html(result);
+            }});
+        }
+
+        loadUserData();
+    });
     </script>
 </body>
  

@@ -1,5 +1,8 @@
-<?php include "../assets/includes/functions.php"; ?>
-
+<?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+include __POS__."/assets/includes/connection.php";
+?>
 <!doctype html>
 <html lang="en">
  
@@ -9,10 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+	<?php include __POS__."/assets/includes/css_loader.php"; ?>
     <style>
     html,
     body {

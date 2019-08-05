@@ -1,8 +1,11 @@
 <?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+include __POS__."/assets/includes/connection.php";
+?>
+<?php 
 
-include "../../assets/includes/connection.php";
-
-session_start(); 
+$sess = new Session;
 
 if (isset($_POST['submit_order'])) {
 

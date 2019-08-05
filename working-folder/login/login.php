@@ -1,6 +1,10 @@
 <?php 
+define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
+include __POS__."/assets/includes/functions.php"; 
+include __POS__."/assets/includes/connection.php";
+?>
+<?php 
 
-include "../assets/includes/connection.php";
 
 if (isset($_POST['submit_login'])) {
 
@@ -22,7 +26,7 @@ if (isset($_POST['submit_login'])) {
 			// echo "<script>alert('Login Berhasil')</script>";
 
 			// Membuat session
-			session_start();
+			$sess = new Session;
 			$row = $select_user->fetch_assoc();
 			$_SESSION['loggedInId'] = $row['user_id'];
 
