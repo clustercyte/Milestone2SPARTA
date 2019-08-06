@@ -17,6 +17,8 @@ if (($userData['user_auth'] != 1)or(!isset($_SESSION['loggedInId'])) or(isset($_
 $po = new Po; 
 $poStatus = $po->getPoStatus();
 $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
+$hasPaid = $po->hasPaid($_SESSION['loggedInId']);
+$hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
 
 ?> 
 
@@ -50,8 +52,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
-        
-        <?php if ($hasOrdered) { ?> 
+
         <!-- ============================================================== -->
         <!-- left sidebar -->
         <!-- ============================================================== -->
@@ -75,6 +76,76 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
+
+        <?php if ($hasPaid && $hasConfirmed) { ?> 
+        
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title"> Pemesanan Buku </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3 class="text-center">Terima kasih telah melakukan pembelian. Gunakan qrcode dibawah ini saat pengambilan</h3>
+                    </div>
+                </div>
+            </div>
+
+        <?php } elseif ($hasPaid && !$hasConfirmed) { ?>
+        
+        <div class="dashboard-wrapper">
+            <div class="container-fluid dashboard-content">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h2 class="pageheader-title"> Pemesanan Buku </h2>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3 class="text-center">Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
+                    </div>
+                </div>
+            </div>
+
+        <?php } elseif ($hasOrdered) { ?> 
             
         <div class="dashboard-wrapper">
 	        <div class="dashboard-influence">
@@ -161,30 +232,7 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
         <?php } else { ?> 
             
         <?php if ($poStatus['po_status'] == 0) { ?> 
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-2">Pesan Buku <span class="badge badge-success">6</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
-        
+
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
                 <!-- ============================================================== -->
@@ -218,29 +266,6 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
             </div>
 
         <?php } elseif ($poStatus['po_status'] == 1) { ?> 
-        <!-- ============================================================== -->
-        <!-- left sidebar -->
-        <!-- ============================================================== -->
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="menu-list">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-2">Pesan Buku <span class="badge badge-success">6</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- end left sidebar -->
-        <!-- ============================================================== -->
             
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
