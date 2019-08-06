@@ -49,6 +49,38 @@ class Po {
         }
     }
 
+    function hasPaid($user_id) {
+        $query = "SELECT cs_payment FROM preorders WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $user_id;
+        $stmt->execute();
+        $row = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        if ($row['cs_payment'] != 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    function hasConfirmed($user_id) {
+        $query = "SELECT cs_confirmation FROM preorders WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $user_id;
+        $stmt->execute();
+        $row = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        if ($row['cs_confirmation'] != 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
     function getPoData() {
         $query = "SELECT * FROM preorders";
         $result = mysqli_query($this->conn, $query);
