@@ -95,8 +95,7 @@ $id = $row['cs_id'];
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Ambil Buku</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -134,8 +133,7 @@ $id = $row['cs_id'];
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Upload Bukti Bayar</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -170,7 +168,7 @@ $id = $row['cs_id'];
 	                                <nav aria-label="breadcrumb">
 	                                    <ol class="breadcrumb">
 	                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-	                                        <li class="breadcrumb-item active" aria-current="page">Bukti Pembayaran</li>
+	                                        <li class="breadcrumb-item active" aria-current="page">Upload Bukti Bayar</li>
 	                                    </ol>
 	                                </nav>
 	                            </div>
