@@ -5,7 +5,7 @@ include __POS__."assets/includes/functions.php";
 <?php 
 
 															$po = new Po;
-															$poData = $po->getPoData("belum_lunas");
+															$poData = $po->getPoData("lunas");
 
 															if ($poData->num_rows > 0) {
 

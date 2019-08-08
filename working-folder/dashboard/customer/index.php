@@ -22,6 +22,8 @@ $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
 $hasPaid = $po->hasPaid($_SESSION['loggedInId']);
 $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
 
+// popOut("hasOrdered: ".$hasOrdered."; hasPaid: ".$hasPaid."; hasConfirmed: ".$hasConfirmed);
+
 ?> 
 
 <!doctype html>
@@ -45,7 +47,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include __POS__."assets/includes/navbar";
+			include __POS__."assets/includes/navbar.php";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -110,8 +112,9 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h3 class="text-center">Terima kasih telah melakukan pembelian. Gunakan qrcode dibawah ini saat pengambilan</h3>
                         <?php
-                            $qrCode = new QrCode('Life is too short to be generating QR codes');
-                            $qrCode->writeFile(__DIR__.'/qrcode.png');
+                            $qrCode = new QrCode('blalbalba');
+                            $qrCode->writeFile(__DIR__.'/qrimg/qrcode.png');
+                            echo '<img class="text-center" src="qrimg/qrcode.png"/>';
                         ?>
                     </div>
                 </div>
@@ -148,11 +151,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="text-center">
                             <h3>Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
-                            <?php
-                                $qrCode = new QrCode('Life is too short to be generating QR codes');
-                                $qrCode->writeFile(__DIR__.'/qrimg/qrcode.png');
-                                echo '<img class="text-center" src="qrimg/qrcode.png"/>';
-                            ?>
+                            
                         </div>
                         
                     </div>
@@ -278,6 +277,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                     </div>
                 </div>
             </div>
+        </div>
 
         <?php } elseif ($poStatus['po_status'] == 1) { ?> 
             

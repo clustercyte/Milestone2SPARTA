@@ -16,7 +16,6 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
 
 $po = new Po; 
 $poStatus = $po->getPoStatus();
-$poData = $po->getPoData();
 
 if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 
@@ -289,20 +288,25 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         setInterval(function(){ loadPoTime(); }, 500);
     });
 
-    $(function() {
+    <?php if (isset($_GET['showData']) && !empty($_GET['showData'])) { ?>
 
-    function loadPoData() {
-        $.ajax({
-            url: "display_po.php",
-            success: function(result){
-            $("#table-data-po").html(result);
-        }});
-    }
+        $(function() {
 
-    loadPoData();
+        function loadPoData() {
+            $.ajax({
+                url: "<?php echo (($_GET['showData'] == "lunas") ? 'display_po.php':'display_lunas.php'); ?>",
+                success: function(result){
+                $("#table-data-po").html(result);
+            }});
+        }
 
-    setInterval(function(){ loadPoData(); }, 500);
-    });
+        loadPoData();
+
+        setInterval(function(){ loadPoData(); }, 500);
+        });
+        
+    <?php } ?>
+
     </script>
 </body>
 </html>

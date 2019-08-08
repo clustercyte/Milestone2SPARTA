@@ -1,7 +1,4 @@
 <?php 
-ini_set('display_errors',1);
-error_reporting(E_ALL);
-var_dump($_FILES);
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
 include __POS__."assets/includes/functions.php"; 
 include __POS__."assets/includes/connection.php";
@@ -42,7 +39,7 @@ if (isset($_POST['submit_payment'])) {
 	// Check if $uploadOk is set to 0 by an error
 	if ($uploadOk == 0) {
 		$pop = "Upload error";
-		// header("Location: index.php?pop=$pop");
+		header("Location: index.php?pop=$pop");
 	// if everything is ok, try to upload file
 	} else {
 		if (move_uploaded_file($_FILES["cs_payment"]["tmp_name"], $target_file)) {
@@ -57,10 +54,10 @@ if (isset($_POST['submit_payment'])) {
 			$conn->close();
 
 			$pop = "Upload berhasil";
-			// header("Location: index.php?pop=$pop");
+			header("Location: index.php?pop=$pop");
 		} else {
 			$pop = "Upload gagal";
-			// header("Location: index.php?pop=$pop");
+			header("Location: index.php?pop=$pop");
 		}
 	}
 }
