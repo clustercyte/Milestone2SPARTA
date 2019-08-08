@@ -47,7 +47,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include __POS__."assets/includes/navbar";
+			include __POS__."assets/includes/navbar.php";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->

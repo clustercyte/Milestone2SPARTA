@@ -96,6 +96,11 @@ class Po {
         $stmt->execute();
         $stmt->close();
     }
+
+    function closePo() {
+        $query = "UPDATE systems SET po_status = 2";
+        mysqli_query($this->conn, $query);
+    }
 }
 
 class Users {
