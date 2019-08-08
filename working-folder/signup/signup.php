@@ -18,8 +18,6 @@ if (isset($_POST['submit_register'])) {
 	$user_uname = $_POST['user_uname'];
 	$user_pass = $_POST['user_pass'];
 	$user_pass_c = $_POST['user_pass_c'];
-	$user_email = $_POST['user_email'];
-	$user_name = $_POST['user_name'];
 
 		if ($user_pass != $user_pass_c) {
 			$pop = "Konfirmasi password salah";
@@ -42,13 +40,11 @@ if (isset($_POST['submit_register'])) {
 		} else {
 
 		// Insert query
-		$query = "INSERT INTO users (user_uname, user_pass, user_email, user_name) VALUE (?, ?, ?, ?)";
+		$query = "INSERT INTO users (user_uname, user_pass) VALUE (?, ?)";
 		$stmt = $conn->prepare($query);
-		$stmt->bind_param('ssss', $uname_query, $pass_query, $email_query, $name_query);
+		$stmt->bind_param('ss', $uname_query, $pass_query);
 		$user_query = $user_uname;
 		$pass_query = $user_pass;
-		$email_query = $user_email;
-		$name_query = $user_name;
 		$stmt->execute();
 		$stmt->close();
 	

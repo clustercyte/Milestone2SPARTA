@@ -1,5 +1,4 @@
 <?php 
-
 ob_start();
 
 function popOut($pop) {
@@ -16,6 +15,10 @@ function uidGen($length = 100) {
 		$randomString .= $chrs[rand(0, $len - 1)];
 	}
 	return $randomString;
+}
+
+function current_url() {
+    return end(explode("/", $_SERVER['REQUEST_URI']));
 }
 
 class Po {
@@ -65,7 +68,7 @@ class Po {
         $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        return $row['cs_payment'] != '0' ? TRUE : FALSE;
+        return $row['cs_payment'] != '0';
     }
 
     function hasConfirmed($user_id) {
@@ -77,7 +80,7 @@ class Po {
         $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        return $row['cs_confirmation'] > 0 ? TRUE : FALSE;
+        return $row['cs_confirmation'] > 0;
     }
 
     function hasTaken($cs_id) {
@@ -91,19 +94,7 @@ class Po {
 
         return $row['cs_taken'] > 0 ? TRUE : FALSE;
     }
-	
-    function getUserPoData($user_id) {
-        $query = "SELECT * FROM preorders WHERE user_id = ?";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('i', $id_query);
-        $id_query = $user_id;
-        $stmt->execute();
-        $row = $stmt->get_result()->fetch_assoc();
-        $stmt->close();
-
-        return $row;
-    }
-	
+    
     function getUntakenPoData($cs_id,$cs_uid) {
         $query = "SELECT * FROM preorders WHERE cs_id = ? AND cs_uid = ?";
         $stmt = $this->conn->prepare($query);
@@ -122,7 +113,7 @@ class Po {
         if ($e == "lunas") {
             $query = "SELECT * FROM preorders WHERE cs_confirmation = 1";
         } else {
-            $query = "SELECT * FROM preorders WHERE cs_confirmation = 0";
+            $query = "SELECT * FROM preorders WHERE cs_confirmation = 0 AND cs_payment <> '0'";
         }
 
         return $this->conn->query($query);
@@ -137,11 +128,18 @@ class Po {
         $stmt->close();
     }
 
-    function closePo() {
-        $query = "UPDATE systems SET po_status = 2";
-        mysqli_query($this->conn, $query);
+    function getUserPoData($cs_id) {
+        $query = "SELECT * FROM preorders WHERE cs_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $cs_id;
+        $stmt->execute();
+        $row = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        return $row;
     }
-	
+
     function changeUserPoData($cs_id,$cs_uid) {
         $query = "UPDATE preorders SET cs_taken = 1 WHERE cs_id = ? AND cs_uid = ?";
         $stmt = $this->conn->prepare($query);
@@ -152,6 +150,26 @@ class Po {
         $stmt->close();
 
         return 0;
+    }
+
+    function isPoExpired($user_id) {
+
+        $userPoData = $this->getUserPoData($user_id);
+        return time() > $userPoData['cs_expired'];
+    }
+
+    function closePo() {
+        $query = "UPDATE systems SET po_status = 2";
+        mysqli_query($this->conn, $query);
+    }
+
+    function confirmPo($cs_id) {
+        $query = "UPDATE preorders SET cs_confirmation = 1 WHERE cs_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $cs_id;
+        $stmt->execute();
+        $stmt->close();
     }
 }
 

@@ -15,10 +15,12 @@ if (($userData['user_auth'] != 1)or(!isset($_SESSION['loggedInId'])) or(isset($_
 }
 
 $po = new Po; 
+$userPoData = $po->getUserPoData($_SESSION['loggedInId']);
 $poStatus = $po->getPoStatus();
 $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
 $hasPaid = $po->hasPaid($_SESSION['loggedInId']);
 $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
+$isPoExpired = $po->isPoExpired($_SESSION['loggedInId']);
 $row = $po->getUserPoData($_SESSION['loggedInId']);
 $uid = $row['cs_uid'];
 $id = $row['cs_id'];
@@ -119,7 +121,7 @@ $id = $row['cs_id'];
                 </div>
             </div>
 
-        <?php } elseif ($hasPaid && !$hasConfirmed) { ?>
+        <?php } elseif ($hasPaid && !$hasConfirmed && $hasOrdered) { ?>
         
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
@@ -156,7 +158,17 @@ $id = $row['cs_id'];
 
         <?php } elseif ($hasOrdered) { ?> 
             
-        <div class="dashboard-wrapper">
+            <?php if ($isPoExpired) { 
+               
+               $po->deletePoData($userPoData['cs_id']);
+               header("Location: index.php");
+
+            ?> 
+                
+            
+            <?php } else { ?> 
+            
+                <div class="dashboard-wrapper">
 	        <div class="dashboard-influence">
 	            <div class="container-fluid dashboard-content">
 	                <!-- ============================================================== -->
@@ -237,6 +249,8 @@ $id = $row['cs_id'];
 						</div>
 						
 						</div>    
+
+            <?php } ?>
 
         <?php } else { ?> 
             

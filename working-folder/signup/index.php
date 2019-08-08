@@ -60,12 +60,6 @@ if (isset($_SESSION['loggedInId'])) {
 									<input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off">
 								</div>
 								<div class="form-group">
-									<input class="form-control form-control-lg" type="text" name="user_name" required="" placeholder="Name" autocomplete="off">
-								</div>
-								<div class="form-group">
-									<input class="form-control form-control-lg" type="email" name="user_email" required="" placeholder="E-mail" autocomplete="off">
-								</div>
-								<div class="form-group">
 									<input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password">
 								</div>
 								<div class="form-group">
