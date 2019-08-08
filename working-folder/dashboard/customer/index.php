@@ -70,7 +70,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-item">
-                            <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-2">Upload Bukti Bayar <span class="badge badge-success">6</span></a>
+                            <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-2">Pemesanan Buku <span class="badge badge-success">6</span></a>
                             </li>
                         </ul>
                     </div>
@@ -97,8 +97,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Ambil Buku</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -110,12 +109,14 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3 class="text-center">Terima kasih telah melakukan pembelian. Gunakan qrcode dibawah ini saat pengambilan</h3>
+                        <div class="text-center">
+                        <h3>Terima kasih telah melakukan pembelian. Gunakan QR Code dibawah ini saat pengambilan</h3>
                         <?php
                             $qrCode = new QrCode('blalbalba');
                             $qrCode->writeFile(__DIR__.'/qrimg/qrcode.png');
                             echo '<img class="text-center" src="qrimg/qrcode.png"/>';
                         ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,9 +136,8 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li
+                                        <li class="breadcrumb-item active" aria-current="page">Konfirmasi Pembayaran</li>
                                     </ol>
                                 </nav>
                             </div>

@@ -71,10 +71,10 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.php">Data PO</a>
+                                            <a class="nav-link" href="index.php?showData=belum_lunas">Data PO</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Lunas</a>
+                                            <a class="nav-link" href="index.php?showData=lunas">Data Lunas</a>
                                         </li>
                                     </ul>
                                 </div>

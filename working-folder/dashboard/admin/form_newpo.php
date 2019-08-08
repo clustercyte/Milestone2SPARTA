@@ -35,7 +35,7 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include __POS__."assets/includes/navbar";
+			include __POS__."assets/includes/navbar.php";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -60,10 +60,10 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="index.php">Data PO</a>
+                                            <a class="nav-link" href="index.php?showData=belum_lunas">Data PO</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Data Lunas</a>
+                                            <a class="nav-link" href="index.php?showData=lunas">Data Lunas</a>
                                         </li>
                                     </ul>
                                 </div>
