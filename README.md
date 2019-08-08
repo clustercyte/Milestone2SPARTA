@@ -1,20 +1,20 @@
 # Milestone2SPARTA
 Tugas Milestone 2 SPARTA Kelompok C (7)
 
-Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini.
+Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini. Website ini merupakan implementasi sistem penjualan buku Phiwiki secara online.
 
 ## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
 
 ### Prerequisites
 
-* **XAMPP**
-* **Text Editor**
+* Platform yang digunakan untuk menulis kode ialah **Text Editor**
+* Server web yang digunakan adalah **XAMPP**
+* Untuk Front-End, bahasa pemrograman yang digunakan adalah **HTML**
+* Untuk Back-End, bahasa pemrograman yang digunakan adalah **PHP**
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
+Untuk menjalankan environment pengembangan website, maka terdapat rangkaian langkah yang dilakukan. 
 
 Say what the step will be
 
