@@ -21,7 +21,7 @@ include __POS__."assets/includes/functions.php";
 																	echo "<td>$i</td>";
 																	echo "<td>$cs_name</td>";
 																	echo "<td>$cs_email</td>";
-																	echo "<td><a href='#' class='btn btn-primary'>Lihat</a></td>";
+																	echo "<td><a href='index.php?confirm=$cs_id' target='__blank' class='btn btn-primary'>Lihat</a></td>";
 																	echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
 																	echo "</tr>";
 
