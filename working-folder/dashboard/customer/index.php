@@ -120,7 +120,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                 </div>
             </div>
 
-        <?php } elseif ($hasPaid && !$hasConfirmed) { ?>
+        <?php } elseif ($hasPaid && !$hasConfirmed && $hasOrdered) { ?>
         
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
@@ -151,7 +151,7 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="text-center">
                             <h3>Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
-                            
+
                         </div>
                         
                     </div>
