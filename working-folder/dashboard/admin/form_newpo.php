@@ -35,7 +35,7 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
         <!-- navbar -->
         <!-- ============================================================== -->
 		<?php
-			include __POS__."assets/includes/navbar.php";
+			include __POS__."assets/includes/navbar";
 		?>
         <!-- ============================================================== -->
         <!-- end navbar -->
@@ -51,30 +51,9 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-<<<<<<< HEAD
 						<?php
 							include __POS__."assets/includes/sidebar_admin";
 						?>
-=======
-                        <ul class="navbar-nav flex-column">
-                            <li class="nav-item ">
-                                <a class="nav-link active" href="form_newpo.php" aria-expanded="false" aria-controls="submenu-1">Pembelian <span class="badge badge-success">6</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">Pre-Order</a>
-                                <div id="submenu-2" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.php?showData=belum_lunas">Data PO</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="index.php?showData=lunas">Data Lunas</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
->>>>>>> 563cf307ca8bc46386575e5ad56343e4502d2c7c
                     </div>
                 </nav>
             </div>
