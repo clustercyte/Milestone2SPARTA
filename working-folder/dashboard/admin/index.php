@@ -21,8 +21,9 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 
     $po->deletePoData($_GET['delete']);
     $pop = "Data berhasil dihapus";
-    header("Location: index.php?pop=$pop");
-}
+    header("Location: ".$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']."&pop=$pop");
+} 
+
 ?> 
 
 <!doctype html>
@@ -62,9 +63,30 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
+<<<<<<< HEAD
 						<?php
 							include __POS__."assets/includes/sidebar_admin";
 						?>
+=======
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item ">
+                                <a class="nav-link active" href="form_newpo.php" aria-expanded="false" aria-controls="submenu-1">Pembelian <span class="badge badge-success">6</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">Pre-Order</a>
+                                <div id="submenu-2" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.php?showData=belum_lunas">Data PO</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="index.php?showData=lunas">Data Lunas</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+>>>>>>> 563cf307ca8bc46386575e5ad56343e4502d2c7c
                     </div>
                 </nav>
             </div>
@@ -72,6 +94,123 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         <!-- ============================================================== -->
         <!-- end left sidebar -->
         <!-- ============================================================== -->
+        <?php if (isset($_GET['confirm']) && !empty($_GET['confirm'])) { $userPoData = $po->getUserPoData($_GET['confirm']); ?> 
+        
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="page-header">
+                                <h2 class="pageheader-title">E-commerce Product Invoice </h2>
+                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
+                                <div class="page-breadcrumb">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Invoice</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+                        <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-6">
+                                            <img src="../../assets/images/payments/Screenshot_20180121_183200.png"; class="img-fluid" style="max-width:200px;"> 
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5 class="mb-3">To:</h5>
+                                            <h3 class="text-dark mb-1">Nama: <?php echo $userPoData['cs_name']; ?></h3>  
+                                            <div>Email: <?php echo $userPoData['cs_email']; ?></div>
+                                            <div>Line: <?php echo $userPoData['cs_line']; ?></div>
+
+                                            <br>
+                                            <div class="row mb-4">
+                                                <div class="col-sm-3">
+                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive-sm">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th class="center">#</th>
+                                                    <th>Item</th>
+                                                    <th>Description</th>
+                                                    <th class="right">Unit Cost</th>
+                                                    <th class="center">Qty</th>
+                                                    <th class="right">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="center">1</td>
+                                                    <td class="left strong">Buku Phiwiki</td>
+                                                    <td class="left"></td>
+                                                    <td class="right">Rp.50000,00</td>
+                                                    <td class="center"><?php echo $userPoData['cs_order_amount']; ?></td>
+                                                    <td class="right">Rp.<?php echo $userPoData['cs_order_amount']*50000; ?></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-white">
+                                    <p class="mb-0">2983 Glenview Drive Corpus Christi, TX 78476</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- footer -->
+                <!-- ============================================================== -->
+                <div class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                <div class="text-md-right footer-links d-none d-sm-block">
+                                    <a href="javascript: void(0);">About</a>
+                                    <a href="javascript: void(0);">Support</a>
+                                    <a href="javascript: void(0);">Contact Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- end footer -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- end wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+        
+        <?php } else { ?> 
+        
         <!-- ============================================================== -->
         <!-- wrapper  -->
         <!-- ============================================================== -->
@@ -252,6 +391,8 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         <!-- end wrapper  -->
         <!-- ============================================================== -->
     </div>
+            
+        <?php } ?>
     <!-- ============================================================== -->
     <!-- end main wrapper  -->
     <!-- ============================================================== -->

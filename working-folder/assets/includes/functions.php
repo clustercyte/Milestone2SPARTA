@@ -137,6 +137,17 @@ class Po {
         $stmt->close();
     }
 
+    function getUserPoData($cs_id) {
+        $query = "SELECT * FROM preorders WHERE cs_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $stmt->execute();
+        $row = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        return $row;
+    }
+
     function closePo() {
         $query = "UPDATE systems SET po_status = 2";
         mysqli_query($this->conn, $query);

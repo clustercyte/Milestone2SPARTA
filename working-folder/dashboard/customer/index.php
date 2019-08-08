@@ -69,9 +69,17 @@ $id = $row['cs_id'];
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
+<<<<<<< HEAD
 						<?php
 							include __POS__."assets/includes/sidebar_customer";
 						?>
+=======
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-item">
+                            <a class="nav-link active" href="#" aria-expanded="false" aria-controls="submenu-2">Pemesanan Buku <span class="badge badge-success">6</span></a>
+                            </li>
+                        </ul>
+>>>>>>> 563cf307ca8bc46386575e5ad56343e4502d2c7c
                     </div>
                 </nav>
             </div>
@@ -95,8 +103,7 @@ $id = $row['cs_id'];
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item active" aria-current="page">Ambil Buku</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -108,6 +115,7 @@ $id = $row['cs_id'];
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+<<<<<<< HEAD
                         <h3 class="text-center">
 							Terima kasih telah melakukan pembelian. Gunakan qrcode dibawah ini saat pengambilan
 							<br>
@@ -115,11 +123,21 @@ $id = $row['cs_id'];
 								include "qr.php";
 							?>
 						</h3>
+=======
+                        <div class="text-center">
+                        <h3>Terima kasih telah melakukan pembelian. Gunakan QR Code dibawah ini saat pengambilan</h3>
+                        <?php
+                            $qrCode = new QrCode('blalbalba');
+                            $qrCode->writeFile(__DIR__.'/qrimg/qrcode.png');
+                            echo '<img class="text-center" src="qrimg/qrcode.png"/>';
+                        ?>
+                        </div>
+>>>>>>> 563cf307ca8bc46386575e5ad56343e4502d2c7c
                     </div>
                 </div>
             </div>
 
-        <?php } elseif ($hasPaid && !$hasConfirmed) { ?>
+        <?php } elseif ($hasPaid && !$hasConfirmed && $hasOrdered) { ?>
         
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
@@ -133,9 +151,8 @@ $id = $row['cs_id'];
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li
+                                        <li class="breadcrumb-item active" aria-current="page">Konfirmasi Pembayaran</li>
                                     </ol>
                                 </nav>
                             </div>
@@ -149,6 +166,10 @@ $id = $row['cs_id'];
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="text-center">
                             <h3>Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 563cf307ca8bc46386575e5ad56343e4502d2c7c
                         </div>
                     </div>
                 </div>
