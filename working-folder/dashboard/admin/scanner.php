@@ -1,30 +1,18 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
-include __POS__."assets/includes/functions.php"; 
+include __POS__."assets/includes/functions.php";
 ?>
-<?php 
+<?php
 
 $sess = new Session;
 
 $user = new Users;
 $userData = $user->getUserData($_SESSION['loggedInId']);
 
-if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_GET['logout']))) {
-	unset($sess->name);
-    header("Location: ".__POS__);
+if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
+	echo(1);
 }
-
-$po = new Po; 
-$poStatus = $po->getPoStatus();
-
-if (isset($_GET['delete']) && !empty($_GET['delete'])) {
-
-    $po->deletePoData($_GET['delete']);
-    $pop = "Data berhasil dihapus";
-    header("Location: index.php?pop=$pop");
-}
-?> 
-
+?>
 <!doctype html>
 <html lang="en">
 
@@ -76,20 +64,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
         <!-- wrapper  -->
         <!-- ============================================================== -->
         <div class="dashboard-wrapper">
-            
-            <?php if ($poStatus['po_status'] == 0) { ?> 
-            
-            <div class="dashboard-finance">
-                <div class="container-fluid dashboard-content">
-                    <div class="container">
-                        <div class="d-flex justify-content-center">
-                            <a href="form_newpo.php" class="btn btn-primary">Buat PO baru</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <?php } elseif ($poStatus['po_status'] == 1) { ?> 
                 
             <div class="container-fluid  dashboard-content">
                 <!-- ============================================================== -->
@@ -98,12 +72,12 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Data Pre Order </h2>
+                            <h2 class="pageheader-title">Scanner </h2>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Data Pre Order</a></li>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Scanner</a></li>
                                     </ol>
                                 </nav>
                             </div>
@@ -121,55 +95,27 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="tab-regular">
                                 <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
+                                        
+                                        <div class="card">
+                                            <div class="d-flex justify-content-between">
+                                                <h5 class="card-header card-header-datapreorder">Result</h5>
+                                            </div>
+                                            <div class="card-body">	
+												<table id="result" class="table">
+												</table>
+											</div>
+                                        </div>
+                                    </div>
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         
                                         <div class="card">
                                             <div class="d-flex justify-content-between">
-                                                <h5 class="card-header card-header-datapreorder">Pesanan</h5>
-                                                <h5 class="card-header card-header-datapreorder" id="potime"></h5>
-                                            </div>
-                                            <div class="card-body">
-                                                <table class="table table-datapreorder">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Nama</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Bukti Bayar</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="table-data-po">
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                <h5 class="card-header card-header-datapreorder">Scanner</h5>
+                                            </div>					
+											<video controls></video>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        
-                                        <div class="card">
-                                            <div class="d-flex justify-content-between">
-                                                <h5 class="card-header card-header-datapreorder">List Pembayaran</h5>
-                                                <h5 class="card-header card-header-datapreorder" id="potime"></h5>
-                                            </div>
-                                            <div class="card-body">
-                                                <table class="table table-datapreorder">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">#</th>
-                                                            <th scope="col">Nama</th>
-                                                            <th scope="col">Email</th>
-                                                            <th scope="col">Bukti Bayar</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="table-data-po">
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- ============================================================== -->
@@ -178,53 +124,9 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                     </div>
                
             </div>
-                
-            <?php } elseif ($poStatus['po_status'] == 2) { ?> 
-                
-                <div class="dashboard-wrapper">
-            <div class="container-fluid  dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Pengambilan </h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader -->
-                <!-- ============================================================== -->
-             
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- validation form -->
-                        <!-- ============================================================== -->
-                        <img src="../assets/images/qr-code.png" height="200" width="200">
-
-                        <!-- ============================================================== -->
-                        <!-- end validation form -->
-                        <!-- ============================================================== -->
-                    </div>
-                    
-                    <br>
-
-
-                    <div class="row">
-
-                        <div class="col-md-1">
-                        <label for="inputText3" class="col-form-label">Kode :</label>
-                        </div>
-                        <div class="col-md-1.5">
-                        <div class="p-1 mb-2 bg-dark text-white">Xcspyfz</div>
-                        </div>
-
-                    </div>
-            </div>
+			
         </div>
-                
-            <?php } ?>
+		
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->
@@ -257,45 +159,85 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     <!-- ============================================================== -->
     <!-- jquery 3.3.1  -->
 	<?php include __POS__."assets/includes/script_loader.php"; ?>
-    <script>
-    $(function() {
+	<script src="../../assets/libs/js/qcode-decoder.min.js"></script>
+	<script>
 
-        function loadPoTime() {
-            $.ajax({
-                url: "../../assets/includes/potime.php",
-                success: function(result){
-                $("#potime").html(result);
-            }});
-        }
-
-        loadPoTime();
-
-        setInterval(function(){ loadPoTime(); }, 500);
-    });
-
-    <?php if (isset($_GET['showData']) && !empty($_GET['showData'])) { ?>
-
-        $(function() {
-
-        function loadPoData() {
-            $.ajax({
-                url: "<?php echo (($_GET['showData'] == "lunas") ? 'display_po.php':'display_lunas.php'); ?>",
-                success: function(result){
-                $("#table-data-po").html(result);
-            }});
-        }
-
-        loadPoData();
-
-        setInterval(function(){ loadPoData(); }, 500);
-        });
-        
-    <?php } ?>
-
+		let constraintObj = { 
+			audio: false, 
+			video: { 
+				facingMode: "user", 
+				width: { min: 500, ideal: 700, max: 1500 },
+				height: { min: 500, ideal: 700, max: 1500 } 
+			} 
+		}; 
+		if (navigator.mediaDevices === undefined) {
+			navigator.mediaDevices = {};
+			navigator.mediaDevices.getUserMedia = function(constraintObj) {
+				let getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+				if (!getUserMedia) {
+					return Promise.reject(new Error('getUserMedia is not implemented in this browser'));
+				}
+				return new Promise(function(resolve, reject) {
+					getUserMedia.call(navigator, constraintObj, resolve, reject);
+				});
+			}
+		}else{
+			navigator.mediaDevices.enumerateDevices()
+			.then(devices => {
+				devices.forEach(device=>{
+					console.log(device.kind.toUpperCase(), device.label);
+					//, device.deviceId
+				})
+			})
+			.catch(err=>{
+				console.log(err.name, err.message);
+			})
+		}
+		navigator.mediaDevices.getUserMedia(constraintObj)
+		.then(function(mediaStreamObj) {
+			//connect the media stream to the first video element
+			let video = document.querySelector('video');
+			if ("srcObject" in video) {
+				video.srcObject = mediaStreamObj;
+			} else {
+				//old version
+				video.src = window.URL.createObjectURL(mediaStreamObj);
+			}
+			
+			video.onloadedmetadata = function(ev) {
+				//show in the video element what is being captured by the webcam
+				video.play();
+			};
+		})
+		.catch(function(err) { 
+			console.log(err.name, err.message); 
+		});
+		load=true;
+		setInterval(()=>{
+			if (load) {
+				QCodeDecoder()
+				.decodeFromVideo(document.querySelector('video'), function (err, result) {
+					load=false;
+					if (err) { load=true } else {
+						console.log(result);
+						var r = new XMLHttpRequest();
+						r.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+						   document.getElementById("result").innerHTML = r.responseText;
+						}
+						};
+						data = new FormData();
+						data.append("result",result);
+						r.open("POST", "checker.php", true);
+						r.send(data);
+						setTimeout(()=>{load=true; console.log(1);}, 3000);
+					}
+				}, true);
+			}
+		}, 2000);
     </script>
 </body>
 </html>
-
 
 <?php 
 
