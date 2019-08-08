@@ -154,38 +154,8 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                                             <th scope="col">Bukti Bayar</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <?php 
-
-															$po = new Po;
-															$poData = $po->getPoData();
-
-															if ($poData->num_rows > 0) {
-
-																$i = 1;
-																while($row = $poData->fetch_assoc()) {
-
-																	$cs_id = $row['cs_id'];
-																	$cs_name = $row['cs_name'];
-																	$cs_email = $row['cs_email'];
-																	$confirm = "Apakah anda yakin ingin menghapus ?";
-
-																	echo "<tr>";
-																	echo "<td>$i</td>";
-																	echo "<td>$cs_name</td>";
-																	echo "<td>$cs_email</td>";
-																	echo "<td><a href='#' class='btn btn-primary'>Lihat</a></td>";
-																	echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
-																	echo "</tr>";
-
-																	$i++;
-																}
-															} else {
-																echo "<td></td>";
-																echo "<td>Belum ada data yang diterima</td>";
-															}
-
-															?>
+                                                    <tbody id="table-data-po">
+                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -307,14 +277,31 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
     $(function() {
 
         function loadPoTime() {
-            $.ajax({url: "../../assets/includes/potime.php", success: function(result){
+            $.ajax({
+                url: "../../assets/includes/potime.php",
+                success: function(result){
                 $("#potime").html(result);
             }});
         }
 
         loadPoTime();
 
-        setInterval(function(){ loadPoTime(); }, 100);
+        setInterval(function(){ loadPoTime(); }, 500);
+    });
+
+    $(function() {
+
+    function loadPoData() {
+        $.ajax({
+            url: "display_po.php",
+            success: function(result){
+            $("#table-data-po").html(result);
+        }});
+    }
+
+    loadPoData();
+
+    setInterval(function(){ loadPoData(); }, 500);
     });
     </script>
 </body>

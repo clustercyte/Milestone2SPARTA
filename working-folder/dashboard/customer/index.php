@@ -1,6 +1,8 @@
 <?php 
 define ('__POS__',str_repeat('../',substr_count(dirname(__FILE__),'\\')-substr_count('C:\xampp\htdocs\Milestone2SPARTA\working-folder','\\')));
 include __POS__."assets/includes/functions.php"; 
+require __POS__."vendor/autoload.php";
+use Endroid\QrCode\QrCode;
 ?>
 <?php 
 
@@ -107,6 +109,10 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <h3 class="text-center">Terima kasih telah melakukan pembelian. Gunakan qrcode dibawah ini saat pengambilan</h3>
+                        <?php
+                            $qrCode = new QrCode('Life is too short to be generating QR codes');
+                            $qrCode->writeFile(__DIR__.'/qrcode.png');
+                        ?>
                     </div>
                 </div>
             </div>
@@ -140,7 +146,15 @@ $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
                 <!-- ============================================================== -->
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <h3 class="text-center">Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
+                        <div class="text-center">
+                            <h3>Terima kasih telah melakukan pembayaran. Silahkan tunggu konfirmasi dari admin</h3>
+                            <?php
+                                $qrCode = new QrCode('Life is too short to be generating QR codes');
+                                $qrCode->writeFile(__DIR__.'/qrimg/qrcode.png');
+                                echo '<img class="text-center" src="qrimg/qrcode.png"/>';
+                            ?>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
