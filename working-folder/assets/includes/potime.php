@@ -3,6 +3,8 @@
 include "functions.php";
 require_once ("connection.php");
 
+$po = new Po;
+
 $month_31days = [1,3,5,7,8,10,12];
 $month_30days = [4,6,9,11];
 
@@ -96,14 +98,18 @@ $m = $s/60;
 $h = $m/60;
 $d = $h/24;
 
-if ($d >= 1) {
-    echo "Tersisa ".floor($d)." hari ".floor($h-floor($d)*24)." jam";
-} else {
-    if ($h >= 1) {
-        echo "Tersisa ".floor($h)." jam ".floor($m-floor($h)*60)." menit";
+if ($s > 0) {
+    if ($d >= 1) {
+        echo "Tersisa ".floor($d)." hari ".floor($h-floor($d)*24)." jam";
     } else {
-        echo "Tersisa ".floor($m)." menit ".floor($s-floor($m)*60)." detik";
+        if ($h >= 1) {
+            echo "Tersisa ".floor($h)." jam ".floor($m-floor($h)*60)." menit";
+        } else {
+            echo "Tersisa ".floor($m)." menit ".floor($s-floor($m)*60)." detik";
+        }
     }
+} else {
+    $po->closePo();
 }
 
 ?>

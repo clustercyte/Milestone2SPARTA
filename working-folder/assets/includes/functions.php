@@ -53,11 +53,7 @@ class Po {
         $row = $stmt->get_result()->num_rows;
         $stmt->close();
 
-        if ($row > 0) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        return $row > 0 ? TRUE : FALSE;
     }
 
     function hasPaid($user_id) {
@@ -69,11 +65,7 @@ class Po {
         $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        if ($row['cs_payment'] != 0) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        return $row['cs_payment'] != '0' ? TRUE : FALSE;
     }
 
     function hasConfirmed($user_id) {
@@ -85,11 +77,7 @@ class Po {
         $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        if ($row['cs_confirmation'] != 0) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
+        return $row['cs_confirmation'] > 0 ? TRUE : FALSE;
     }
 	
     function getUniqueId($user_id) {
@@ -104,11 +92,15 @@ class Po {
         return $row['cs_uid'];
     }
 
-    function getPoData() {
-        $query = "SELECT * FROM preorders";
-        $result = mysqli_query($this->conn, $query);
+    function getPoData($e) {
 
-        return $result;
+        if ($e == "lunas") {
+            $query = "SELECT * FROM preorders WHERE cs_confirmation = 1";
+        } else {
+            $query = "SELECT * FROM preorders WHERE cs_confirmation = 0 AND cs_payment <> '0'";
+        }
+
+        return $this->conn->query($query);
     }
 
     function deletePoData($cs_id) {
@@ -118,6 +110,11 @@ class Po {
         $id_query = $cs_id;
         $stmt->execute();
         $stmt->close();
+    }
+
+    function closePo() {
+        $query = "UPDATE systems SET po_status = 2";
+        mysqli_query($this->conn, $query);
     }
 }
 
