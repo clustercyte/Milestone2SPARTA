@@ -1,10 +1,21 @@
 <?php 
+
 ob_start();
 
 function popOut($pop) {
     
     $pop = strip_tags($pop);
     echo "<script>alert('$pop')</script>";
+}
+
+function uidGen($length = 100) {
+	$chrs = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+	$len = strlen($chrs);
+	$randomString = '';
+	for ($i = 0; $i < $length; $i++) {
+		$randomString .= $chrs[rand(0, $len - 1)];
+	}
+	return $randomString;
 }
 
 class Po {
@@ -79,6 +90,18 @@ class Po {
         } else {
             return FALSE;
         }
+    }
+	
+    function getUniqueId($user_id) {
+        $query = "SELECT cs_uid FROM preorders WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param('i', $id_query);
+        $id_query = $user_id;
+        $stmt->execute();
+        $row = $stmt->get_result()->fetch_assoc();
+        $stmt->close();
+
+        return $row['cs_uid'];
     }
 
     function getPoData() {
