@@ -1,6 +1,7 @@
 # Milestone2SPARTA
 Tugas Milestone 2 SPARTA Kelompok C (7)
-Kelompok C membuat sebuah website untuk menyelesaikan masalah-masalah yang ada di Tim Phiwiki saat ini.
+
+Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini.
 
 ## Getting Started
 
