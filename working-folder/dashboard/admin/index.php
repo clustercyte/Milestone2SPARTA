@@ -163,7 +163,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                                         </tr>
                                                     </thead>
                                                     <tbody id="table-data-po">
-                                                        
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -279,7 +278,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
 
         function loadPoData() {
             $.ajax({
-                url: "<?php echo (($_GET['showData'] == "lunas") ? 'display_po.php':'display_lunas.php'); ?>",
+                url: "<?php echo (($_GET['showData'] != "lunas") ? 'display_po.php':'display_lunas.php'); ?>",
                 success: function(result){
                 $("#table-data-po").html(result);
             }});

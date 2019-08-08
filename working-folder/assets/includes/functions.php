@@ -122,7 +122,7 @@ class Po {
         if ($e == "lunas") {
             $query = "SELECT * FROM preorders WHERE cs_confirmation = 1";
         } else {
-            $query = "SELECT * FROM preorders WHERE cs_confirmation = 0 AND cs_payment <> '0'";
+            $query = "SELECT * FROM preorders WHERE cs_confirmation = 0";
         }
 
         return $this->conn->query($query);
