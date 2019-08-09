@@ -4,7 +4,7 @@ Tugas Milestone 2 SPARTA Kelompok C (7)
 Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini. Website ini merupakan implementasi sistem penjualan buku Phiwiki secara online.
 
 ## Pendahuluan
-Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
+Berikut ini merupakan spesifikasi yang meliputi bahasa, platform, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
 
 ### Prasyarat
 
