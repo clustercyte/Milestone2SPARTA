@@ -50,10 +50,10 @@ if (isset($_SESSION['loggedInId'])) {
                         <div class="card-body">
                             <form action="login.php" method="post">
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" id="username" type="text" name="user_uname" placeholder="Username" autocomplete="off">
+                                    <input class="form-control form-control-lg" id="username" type="text" name="user_uname" placeholder="Username" autocomplete="on" required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control form-control-lg" id="password" type="password" name="user_pass" placeholder="Password">
+                                    <input class="form-control form-control-lg" id="password" type="password" name="user_pass" placeholder="Password" required>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" name="submit_login">Sign in</button>
                             </form>

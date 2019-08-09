@@ -57,13 +57,13 @@ if (isset($_SESSION['loggedInId'])) {
                         <div class="card-body">
                             <form action="login.php" method="post">
 								<div class="form-group">
-									<input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off">
+									<input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off" required>
 								</div>
 								<div class="form-group">
-									<input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password">
+									<input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password" required>
 								</div>
 								<div class="form-group">
-									<input class="form-control form-control-lg" id="pass2" type="password" name="user_pass_c" required="" placeholder="Confirm">
+									<input class="form-control form-control-lg" id="pass2" type="password" name="user_pass_c" required="" placeholder="Confirm" required>
 								</div>
 								<div class="form-group pt-2">
 									<button class="btn btn-block btn-primary" type="submit" name="submit_register">Register My Account</button>
