@@ -70,7 +70,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosting mirip dengan cara melakukan deploy di server lokal, hanya saja ada sedikit perbedaan untuk penamaan direktorinya.
 
 ## Built With
 
