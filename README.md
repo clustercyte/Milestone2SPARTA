@@ -3,10 +3,10 @@ Tugas Milestone 2 SPARTA Kelompok C (7)
 
 Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini. Website ini merupakan implementasi sistem penjualan buku Phiwiki secara online.
 
-## Getting Started
+## Pendahuluan
 Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
 
-### Prerequisites
+### Prasyarat
 
 * Platform yang digunakan untuk menulis kode ialah **Text Editor**
 * Server web yang digunakan adalah **XAMPP**
@@ -32,6 +32,7 @@ Catatan: Perlu dilakukan penyesuaian kebutuhan bergantung dengan jenis versi PHP
 8. Pilih default bahasa kemudian klik **Save**
 
 Adapun langkah berikutnya setelah pengunduhan XAMPP adalah memulai konfigurasi environment sever web.
+
 
 **Langkah konfigurasi XAMPP pada Windows 10:**
 
@@ -85,18 +86,9 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Kontributor
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* Front-End: **M** - [PurpleBooth](https://github.com/PurpleBooth)
+* Back-End: 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Lihat juga [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
