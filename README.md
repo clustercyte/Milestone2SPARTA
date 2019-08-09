@@ -13,7 +13,7 @@ Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dal
 * Untuk Front-End, bahasa pemrograman yang digunakan adalah **HTML**
 * Untuk Back-End, bahasa pemrograman yang digunakan adalah **PHP**
 
-### Installing
+### Instalasi
 Untuk menjalankan environment pengembangan website, maka terdapat rangkaian langkah yang dilakukan. 
 
 **Langkah instalasi XAMPP pada Windows 10:**
@@ -24,16 +24,18 @@ Untuk menjalankan environment pengembangan website, maka terdapat rangkaian lang
 Catatan: Perlu dilakukan penyesuaian kebutuhan bergantung dengan jenis versi PHP
 ```
 2. Klik dua kali pada link menuju file yang akan diunduh
-3. Klik tombol **OK** pada warning box untuk melanjutkan
-4. Klik tombol **Next** untuk menyelesaikan instalasi
-5. Pilih berbagai komponen yang dibutuhkan sebagai default seperti PHP, dan lain-lain. Selanjutnya, pilih **Next**
-6.
+3. Klik button **OK** pada warning box untuk melanjutkan
+4. Klik button **Next** untuk menyelesaikan instalasi
+5. Pilih berbagai komponen yang dibutuhkan sebagai default seperti PHP, dan lain-lain. Selanjutnya, pilih **Next** untuk memilih folder penempatan software.
+6. Klik button **Next** untuk Setup
+7. Klik button **Allow access** kemudian klik **Finish** untuk menyelesaikan proses Setup
+8. Pilih default bahasa kemudian klik **Save**
 
-```
-until finished
-```
+Adapun langkah berikutnya setelah pengunduhan XAMPP adalah memulai konfigurasi environment sever web.
 
-End with an example of getting some data out of the system or using it for a little demo
+**Langkah konfigurasi XAMPP pada Windows 10:**
+
+Pada Control Panel XAMPP terdapat tiga bagian utama dimana semua jenis **Service** pada **Module** yang dapat dijalankan melalui button **Start**. 
 
 ## Running the tests
 
