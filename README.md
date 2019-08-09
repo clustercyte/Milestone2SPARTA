@@ -36,8 +36,18 @@ Adapun langkah berikutnya setelah pengunduhan XAMPP adalah memulai konfigurasi e
 **Langkah konfigurasi XAMPP pada Windows 10:**
 
 Pada Control Panel XAMPP terdapat tiga bagian utama dimana semua jenis **Service** pada **Module** yang dapat dijalankan melalui button **Start**. 
+1. Ketika sebuah service mulai dijalankan, terdapat informasi mengenai process ID serta port TCP/IP pada bagian kanan.
+```
+Untuk default Apache menggunakan port TCP/IP 80 dan 443 sementara MySQL menggunakan port TCP/IP 3306
+```
+2. Mengatur button yang terlibat
+* Button **Admin** berguna untuk memperoleh akses pada dashboard administrasi pada setiap service dan memastikan bahwa sistem bekerja dengan benar
+* Button **Config** untuk melakukan konfigurasi modul secara otomatis ketika launch XAMPP
+* Button **Netstat** untuk memunculkan service yang sedang mengakses jaringan, process ID, serta informasi port TCP/IP
 
-## Running the tests
+Selain itu, terdapat pintasan untuk mengakses folder instalasi XAMPP, service, dan keluar dari aplikasi. Bahkan terdapat bagian logs untuk mengetahui detail perubahan modul yang bekerja sehingga dapat memeroleh pesan kesalahan yang mungkin terjadi.
+
+## Menjalankan pengujian
 
 Explain how to run the automated tests for this system
 
