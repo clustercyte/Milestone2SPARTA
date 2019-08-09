@@ -143,7 +143,7 @@ $id = $row['cs_id'];
             <?php if ($isPoExpired) { 
                
                $po->deletePoData($userPoData['cs_id']);
-               header("Location: index.php");
+               header("Location: .");
 
             ?> 
                 

@@ -83,7 +83,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
                                 <h2 class="pageheader-title">E-commerce Product Invoice </h2>
-                                <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -117,9 +116,11 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                                 <div class="col-sm-3">
                                                     <a href="index.php?delete=<?php echo $userPoData['cs_id']; ?>" class="btn btn-primary">Hapus</a>
                                                 </div>
-                                                <div class="col-sm-3">
+                                                <?php if ($userPoData['cs_confirmation'] == 0) { ?>
+												<div class="col-sm-3">
                                                     <a href="confirm.php?cs_id=<?php echo $userPoData['cs_id']; ?>" class="btn btn-primary">Konfirmasi</a>
                                                 </div>
+												<?php } ?>
                                             </div>
                                         </div>
                                     </div>

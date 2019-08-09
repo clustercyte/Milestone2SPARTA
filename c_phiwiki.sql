@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2019 at 06:18 AM
+-- Generation Time: Aug 09, 2019 at 03:07 PM
 -- Server version: 10.1.33-MariaDB
 -- PHP Version: 7.2.6
 
@@ -41,21 +41,20 @@ CREATE TABLE `preorders` (
   `cs_line` varchar(255) NOT NULL,
   `cs_address` text NOT NULL,
   `cs_payment` varchar(255) NOT NULL DEFAULT '0',
-  `cs_read` int(11) NOT NULL DEFAULT '0',
   `cs_confirmation` int(11) NOT NULL,
   `cs_uid` varchar(100) NOT NULL,
-  `cs_taken` int(11) NOT NULL DEFAULT '0'
+  `cs_taken` int(11) NOT NULL DEFAULT '0',
+  `cs_expired` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `preorders`
 --
 
-INSERT INTO `preorders` (`cs_id`, `user_id`, `cs_name`, `cs_email`, `cs_institution`, `cs_itb_or_not`, `cs_faculty`, `cs_order_amount`, `cs_phone`, `cs_line`, `cs_address`, `cs_payment`, `cs_read`, `cs_confirmation`, `cs_uid`, `cs_taken`) VALUES
-(5, 1, 'asd', '', '', 'itb', 'Pilih Fakultas', 0, '', '', '', '0', 0, 0, '0', 0),
-(6, 2, 'OOO', 'OOO@d.f', '', 'itb', 'SF', -3, '2', '3', 'OOO', '0', 0, 0, 'JDKWJOIDOWIOEJHUIUYIUIH672537872836', 0),
-(7, 6, 'dw', 'da@f.c', '', 'itb', 'SBM', 13, '324', 'BBB', 'BBB', '1', 1, 1, 'O8k4PQLHysPUpO6gfzGrXZ6l9EJaYjR1xGlZ0XXkYvM9ElqldEpUJtPHtOB5zt8P3nGBKRGntW1Arb7THPMlLOaNFrP1yOeTzR7n', 1),
-(487, 323, 'meme', 'me@me.me', '', 'itb', 'SBM', 3, '323', 'ddw', '', '1', 1, 1, '33', 1);
+INSERT INTO `preorders` (`cs_id`, `user_id`, `cs_name`, `cs_email`, `cs_institution`, `cs_itb_or_not`, `cs_faculty`, `cs_order_amount`, `cs_phone`, `cs_line`, `cs_address`, `cs_payment`, `cs_confirmation`, `cs_uid`, `cs_taken`, `cs_expired`) VALUES
+(5, 1, 'asd', '', '', 'itb', 'Pilih Fakultas', 0, '', '', '', '0', 0, '0', 0, 0),
+(6, 2, 'OOO', 'OOO@d.f', '', 'itb', 'SF', -3, '2', '3', 'OOO', '0', 0, 'JDKWJOIDOWIOEJHUIUYIUIH672537872836', 0, 0),
+(8, 7, 'a@a.c', 'a@a.c', '', 'itb', 'SBM', 2, 'e3', 'a@a.c', 'a@a.c', 'd98a998ebfc8a621045486e5a9a527e0.jpg', 1, 'q0Drn28uUgWzEs35tagxDKlDZqu04KWDKd899hN4EClUuTgfeQdIGkKh5JrGsoP9NkynB80K7nUlcnqKOha30RlvDBEj5OadzHYv', 0, 1565362297);
 
 -- --------------------------------------------------------
 
@@ -135,7 +134,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `preorders`
 --
 ALTER TABLE `preorders`
-  MODIFY `cs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=488;
+  MODIFY `cs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `systems`

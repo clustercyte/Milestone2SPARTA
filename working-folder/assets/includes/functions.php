@@ -128,11 +128,11 @@ class Po {
         $stmt->close();
     }
 
-    function getUserPoData($cs_id) {
-        $query = "SELECT * FROM preorders WHERE cs_id = ?";
+    function getUserPoData($user_id) {
+        $query = "SELECT * FROM preorders WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i', $id_query);
-        $id_query = $cs_id;
+        $id_query = $user_id;
         $stmt->execute();
         $row = $stmt->get_result()->fetch_assoc();
         $stmt->close();
