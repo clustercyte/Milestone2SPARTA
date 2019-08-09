@@ -16,13 +16,18 @@ Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dal
 ### Installing
 Untuk menjalankan environment pengembangan website, maka terdapat rangkaian langkah yang dilakukan. 
 
-Say what the step will be
+**Langkah instalasi XAMPP pada Windows 10:**
+
+1. Download XAMPP dari [Apache Friends](https://www.apachefriends.org/index.html) 
 
 ```
-Give the example
+Catatan: Perlu dilakukan penyesuaian kebutuhan bergantung dengan jenis versi PHP
 ```
-
-And repeat
+2. Klik dua kali pada link menuju file yang akan diunduh
+3. Klik tombol **OK** pada warning box untuk melanjutkan
+4. Klik tombol **Next** untuk menyelesaikan instalasi
+5. Pilih berbagai komponen yang dibutuhkan sebagai default seperti PHP, dan lain-lain. Selanjutnya, pilih **Next**
+6.
 
 ```
 until finished
