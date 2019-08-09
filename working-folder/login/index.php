@@ -46,7 +46,7 @@ if (isset($_SESSION['loggedInId'])) {
             <div class="col-md-3 no-margin no-padding">
                 <div class="splash-container max-width-100 no-padding">
                     <div class="card no-margin">
-                        <div class="card-header text-center"><a href="../index.html"><img class="logo-img" src="../assets/images/phiwiki.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
+                        <div class="card-header text-center"><a href=""><img class="logo-img" src="../assets/images/phiwiki.png" alt="logo"></a><span class="splash-description">Please enter your user information.</span></div>
                         <div class="card-body">
                             <form action="login.php" method="post">
                                 <div class="form-group">
