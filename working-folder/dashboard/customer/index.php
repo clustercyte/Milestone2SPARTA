@@ -22,8 +22,8 @@ $hasPaid = $po->hasPaid($_SESSION['loggedInId']);
 $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
 $isPoExpired = $po->isPoExpired($_SESSION['loggedInId']);
 $row = $po->getUserPoData($_SESSION['loggedInId']);
-$uid = $row['cs_uid'];
-$id = $row['cs_id'];
+$uid = $userPoData['cs_uid'];
+$id = $userPoData['cs_id'];
 
 // popOut("hasOrdered: ".$hasOrdered."; hasPaid: ".$hasPaid."; hasConfirmed: ".$hasConfirmed);
 
