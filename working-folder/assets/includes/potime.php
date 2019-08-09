@@ -5,8 +5,6 @@ require_once ("connection.php");
 
 $po = new Po;
 
-$month_31days = [1,3,5,7,8,10,12];
-$month_30days = [4,6,9,11];
 
 function isKabisat($y) {
     if ($y % 4 == 0 || ($y % 400 == 0 && $y % 100 != 0)) {
@@ -15,8 +13,10 @@ function isKabisat($y) {
         return false;
     }
 }
-
+	
 function checkday($m, $y) {
+	$month_31days = [1,3,5,7,8,10,12];
+	$month_30days = [4,6,9,11];
     if (in_array($m, $month_30days)) {
         return 30;
     } elseif (in_array($m, $month_31days)) {
@@ -57,8 +57,8 @@ $days = NULL;
 $poStatus = $po->getPoStatus();
 
 $po_closed = $poStatus['po_closed'];
-$po_closed = explode("/", $po_closed);
-$po_closed = [$po_closed[2]+0, $po_closed[1]+0, $po_closed[0]+0];
+$po_closed = explode("-", $po_closed);
+$po_closed = [$po_closed[2], $po_closed[1], $po_closed[0]];
 
 if ($y == $po_closed[2]) {
 

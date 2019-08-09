@@ -15,10 +15,12 @@ if (($userData['user_auth'] != 1)or(!isset($_SESSION['loggedInId'])) or(isset($_
 }
 
 $po = new Po; 
+$userPoData = $po->getUserPoData($_SESSION['loggedInId']);
 $poStatus = $po->getPoStatus();
 $hasOrdered = $po->hasOrdered($_SESSION['loggedInId']);
 $hasPaid = $po->hasPaid($_SESSION['loggedInId']);
 $hasConfirmed = $po->hasConfirmed($_SESSION['loggedInId']);
+$isPoExpired = $po->isPoExpired($_SESSION['loggedInId']);
 $row = $po->getUserPoData($_SESSION['loggedInId']);
 $uid = $row['cs_uid'];
 $id = $row['cs_id'];
@@ -91,15 +93,6 @@ $id = $row['cs_id'];
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
                             <h2 class="pageheader-title"> Pemesanan Buku </h2>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
-                                    </ol>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +112,7 @@ $id = $row['cs_id'];
                 </div>
             </div>
 
-        <?php } elseif ($hasPaid && !$hasConfirmed) { ?>
+        <?php } elseif ($hasPaid && !$hasConfirmed && $hasOrdered) { ?>
         
         <div class="dashboard-wrapper">
             <div class="container-fluid dashboard-content">
@@ -130,15 +123,6 @@ $id = $row['cs_id'];
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
                             <h2 class="pageheader-title"> Pemesanan Buku </h2>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
-                                    </ol>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,7 +140,17 @@ $id = $row['cs_id'];
 
         <?php } elseif ($hasOrdered) { ?> 
             
-        <div class="dashboard-wrapper">
+            <?php if ($isPoExpired) { 
+               
+               $po->deletePoData($userPoData['cs_id']);
+               header("Location: index.php");
+
+            ?> 
+                
+            
+            <?php } else { ?> 
+            
+                <div class="dashboard-wrapper">
 	        <div class="dashboard-influence">
 	            <div class="container-fluid dashboard-content">
 	                <!-- ============================================================== -->
@@ -238,6 +232,8 @@ $id = $row['cs_id'];
 						
 						</div>    
 
+            <?php } ?>
+
         <?php } else { ?> 
             
         <?php if ($poStatus['po_status'] == 0) { ?> 
@@ -251,15 +247,6 @@ $id = $row['cs_id'];
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
                             <h2 class="pageheader-title"> Pemesanan Buku </h2>
-                            <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Pages</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Blank Pageheader</li>
-                                    </ol>
-                                </nav>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -41,11 +41,12 @@ if (isset($_POST['submit_order'])) {
     $query .= "cs_phone,";
     $query .= "cs_line,";
     $query .= "cs_address,";
+    $query .= "cs_expired,";
     $query .= "cs_uid) VALUE (";
-    $query .= "?,?,?,?,?,?,?,?,?,?,?)";
+    $query .= "?,?,?,?,?,?,?,?,?,?,?,?)";
 
     $stmt = $conn->prepare($query);
-    $stmt->bind_param('isssssissss', $id_query, $name_query, $itb_query, $institution_query, $faculty_query, $email_query, $amount_query, $phone_query, $line_query, $address_query, $uid_query);
+    $stmt->bind_param('isssssisssis', $id_query, $name_query, $itb_query, $institution_query, $faculty_query, $email_query, $amount_query, $phone_query, $line_query, $address_query, $expired_query, $uid_query);
 
     $id_query = $user_id;
     $name_query = $cs_name;
@@ -63,6 +64,7 @@ if (isset($_POST['submit_order'])) {
     $phone_query = $cs_phone;
     $line_query = $cs_line;
     $address_query = $cs_address;
+    $expired_query = time() + 7200;
 	$uid_query = uidGen();
 
     $stmt->execute();

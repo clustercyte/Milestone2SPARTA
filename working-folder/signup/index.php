@@ -60,12 +60,6 @@ if (isset($_SESSION['loggedInId'])) {
 									<input class="form-control form-control-lg" type="text" name="user_uname" required="" placeholder="Username" autocomplete="off">
 								</div>
 								<div class="form-group">
-									<input class="form-control form-control-lg" type="text" name="user_name" required="" placeholder="Name" autocomplete="off">
-								</div>
-								<div class="form-group">
-									<input class="form-control form-control-lg" type="email" name="user_email" required="" placeholder="E-mail" autocomplete="off">
-								</div>
-								<div class="form-group">
 									<input class="form-control form-control-lg" id="pass1" type="password" name="user_pass" required="" placeholder="Password">
 								</div>
 								<div class="form-group">
@@ -73,11 +67,6 @@ if (isset($_SESSION['loggedInId'])) {
 								</div>
 								<div class="form-group pt-2">
 									<button class="btn btn-block btn-primary" type="submit" name="submit_register">Register My Account</button>
-								</div>
-								<div class="form-group">
-									<label class="custom-control custom-checkbox">
-										<input class="custom-control-input" type="checkbox"><span class="custom-control-label">By creating an account, you agree the <a href="#">terms and conditions</a></span>
-									</label>
 								</div>
                             </form>
                         </div>

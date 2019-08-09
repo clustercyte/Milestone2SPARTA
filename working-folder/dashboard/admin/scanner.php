@@ -9,9 +9,11 @@ $sess = new Session;
 $user = new Users;
 $userData = $user->getUserData($_SESSION['loggedInId']);
 
-if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
-	echo(1);
+if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_GET['logout']))) {
+	unset($sess->name);
+    header("Location: ".__POS__);
 }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -234,7 +236,6 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
 						   document.getElementById("result").innerHTML = document.getElementById("result").innerHTML + r.responseText;
 						}
 						};
-						console.log(1);
 						data = new FormData();
 						data.append("result",result);
 						r.open("POST", "checker.php", true);

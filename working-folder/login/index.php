@@ -55,20 +55,13 @@ if (isset($_SESSION['loggedInId'])) {
                                 <div class="form-group">
                                     <input class="form-control form-control-lg" id="password" type="password" name="user_pass" placeholder="Password">
                                 </div>
-                                <div class="form-group">
-                                    <label class="custom-control custom-checkbox">
-                                        <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
-                                    </label>
-                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg btn-block" name="submit_login">Sign in</button>
                             </form>
                         </div>
                         <div class="card-footer bg-white p-0  card-footer-login">
                             <div class="card-footer-item card-footer-item-bordered">
-                                <a href="../signup/" class="footer-link">Create An Account</a></div>
-                            <div class="card-footer-item card-footer-item-bordered">
-                                <a href="#" class="footer-link">Forgot Password</a>
-                            </div>
+                                <a href="../signup/" class="footer-link">Create An Account</a>
+							</div>
                         </div>
                     </div>
                 </div>

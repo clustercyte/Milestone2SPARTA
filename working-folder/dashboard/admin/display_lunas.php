@@ -21,7 +21,7 @@ if ($poData->num_rows > 0) {
 		echo "<td>$cs_name</td>";
 		echo "<td>$cs_email</td>";
 		echo "<td><a href='index.php?confirm=$cs_id' target='__blank' class='btn btn-primary'>Lihat</a></td>";
-		echo "<td><a href='index.php?delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
+		echo "<td><a href='index.php?showData=lunas&delete=$cs_id' class='btn btn-primary' onclick='return confirm($confirm);'>Delete</a></td>";
 		echo "</tr>";
 
 		$i++;
