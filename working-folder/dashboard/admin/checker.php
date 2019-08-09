@@ -19,7 +19,7 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
 $po = new Po;
 
 $unique = explode("|",$_POST['result']);
-if (count($unique) == 1) {
+if (count($unique) == 2) {
 	$id = $unique[0];
 	$uid = $unique[1];
 	$hasTaken = $po->hasTaken($id);
