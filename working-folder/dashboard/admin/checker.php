@@ -21,22 +21,13 @@ $po = new Po;
 $unique = $_POST['result'];
 $id = substr($unique,0,1);
 $uid = substr($unique,1);
-
 $hasTaken = $po->hasTaken($id);
 if (!$hasTaken) {
 	$row = $po->getUntakenPoData($id,$uid);
 	if (isset($row)) {
+		date_default_timezone_set("Asia/Bangkok");
+		$currentDate = date('Y-m-d H:i:s',time());
 		echo '
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Nama</th>
-					<th scope="col">Email</th>
-					<th scope="col">Fakultas</th>
-					<th scope="col">Jumlah Order</th>
-					<th scope="col">Line</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
 			';
@@ -46,16 +37,17 @@ if (!$hasTaken) {
 		echo "<td>".$row["cs_faculty"]."</td>";
 		echo "<td>".$row["cs_order_amount"]."</td>";
 		echo "<td>".$row["cs_line"]."</td>";
+		echo "<td>".$currentDate."</td>";
 		echo '
 				</tr>
 			</tbody>
 			';
-		echo "<div>PO berhasil diambil!</div>";
+		echo "<tbody>PO berhasil diambil!</div>";
 		$po->changeUserPoData($id,$uid);
 	} else {
-		echo "QRCode tidak valid!";
+		echo "<tbody>QRCode tidak valid!</tbody>";
 	};
 } else {
-	echo "PO ini sudah diambil!";
+	echo "<tbody>PO ini sudah diambil!</tbody>";
 }
 ?>

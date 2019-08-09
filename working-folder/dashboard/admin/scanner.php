@@ -103,6 +103,17 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
                                             </div>
                                             <div class="card-body">	
 												<table id="result" class="table">
+													<thead>
+														<tr>
+															<th scope="col">#</th>
+															<th scope="col">Nama</th>
+															<th scope="col">Email</th>
+															<th scope="col">Fakultas</th>
+															<th scope="col">Jumlah Order</th>
+															<th scope="col">Line</th>
+															<th scope="col">Waktu Pengambilan</th>
+														</tr>
+													</thead>
 												</table>
 											</div>
                                         </div>
@@ -212,29 +223,28 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))) {
 		.catch(function(err) { 
 			console.log(err.name, err.message); 
 		});
-		load=true;
-		setInterval(()=>{
-			if (load) {
+		scan = () => {
 				QCodeDecoder()
 				.decodeFromVideo(document.querySelector('video'), function (err, result) {
 					load=false;
-					if (err) { load=true } else {
-						console.log(result);
+					if (err) { scan(); return 0; } else {
 						var r = new XMLHttpRequest();
 						r.onreadystatechange = function() {
 						if (this.readyState == 4 && this.status == 200) {
-						   document.getElementById("result").innerHTML = r.responseText;
+						   document.getElementById("result").innerHTML = document.getElementById("result").innerHTML + r.responseText;
 						}
 						};
+						console.log(1);
 						data = new FormData();
 						data.append("result",result);
 						r.open("POST", "checker.php", true);
 						r.send(data);
-						setTimeout(()=>{load=true; console.log(1);}, 3000);
+						setTimeout(()=>{scan();},5000);
 					}
+					return 0;
 				}, true);
-			}
-		}, 2000);
+		}
+		scan();
     </script>
 </body>
 </html>

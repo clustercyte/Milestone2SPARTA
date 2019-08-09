@@ -63,7 +63,7 @@ if (isset($_POST['submit_order'])) {
     $phone_query = $cs_phone;
     $line_query = $cs_line;
     $address_query = $cs_address;
-	$uid_query = generateRandomString();
+	$uid_query = uidGen();
 
     $stmt->execute();
     $stmt->close();
