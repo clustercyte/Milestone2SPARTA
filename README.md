@@ -77,6 +77,8 @@ Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosti
 * [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 * [Maven](https://maven.apache.org/) - Dependency Management
 * [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [QRCode Generator](https://github.com/chillerlan/php-qrcode) - Used to generate QRCode
+* [QRCode Decoder](https://github.com/cirocosta/qcode-decoder/) - Used to decode QRCode
 
 ## Contributing
 
