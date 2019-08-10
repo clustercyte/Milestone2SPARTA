@@ -52,17 +52,28 @@ Selain itu, terdapat pintasan untuk mengakses folder instalasi XAMPP, service, d
 
 Pengujian dilakukan secara manual yaitu satu per satu sesuai dengan prosedur yang benar untuk membeli buku
 
-### Detail tiap pengujian
+### Sebagai Pembeli
 
 1. Melakukan Registrasi melalui **Create An Account**
 Pada **Registration Form**, terdapat data username dan password yang harus diisi kemudian memilih button **Register My Account**
 
-2. Melakukan Log in dengan mengisi username dan password yang benar kemduian memilih button **Sign In*
-3. 
+2. Melakukan Log in dengan mengisi username dan password yang benar kemduian memilih button **Sign In**
+3. Mengisi Form Pemesanan Buku dengan cara melengkapi semua kolom data yang tersedia kemudian memilih button **Submit**
+4. Menguggah Bukti Pembayaran dengan memilih **Choose File** kemudian klik **Submit** jika file sudah benar
+5. Memperoleh QR Code untuk mengambil buku
+6. Keluar dari akun melalui Button berwarna abu-abu di sebelah kiri atas dashboard, kemudian memilih **Log Out**
 
-```
-Give an example
-```
+
+### Sebagai Admin
+
+1. Melakukan Log in dengan mengisi username=**z** dan password=**z** kemduian memilih button **Sign In**
+2. Membuka penjualan dengan **Buat PO Baru** kemudian pengisi nama PO dan batas tanggal
+3. Melihat Data Pre-Order yang mencakup **Data PO** dan **Data Lunas**
+Pada **Data PO**, Admin akan melakukan **Konfirmasi** jika bukti pembayaran valid atau **Hapus** jika bukti pembayaran tidak valid
+Pada **Data Lunas**, Admin akan melihat data pembeli yang bisa mengambil buku 
+4. Membaca QR Code pada Tab **Scanner** sebelum memberikan buku kepada pembeli
+5. Keluar dari akun melalui Button berwarna abu-abu di sebelah kiri atas dashboard, kemudian memilih **Log Out**
+
 
 ## Deployment
 
