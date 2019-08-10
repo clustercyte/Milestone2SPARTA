@@ -101,7 +101,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                         <div class="offset-xl-2 col-xl-8 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="row mb-4">
+                                    <div class="row mb-4" style="overflow: scroll">
                                         <div class="col-sm-6">
                                             <img src="../../assets/images/payments/Screenshot_20180121_183200.png"; class="img-fluid" style="max-width:200px;"> 
                                         </div>
@@ -236,7 +236,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         
-                                        <div class="card">
+                                        <div class="card" style="overflow: scroll">
                                             <div class="d-flex justify-content-between">
                                                 <h5 class="card-header card-header-datapreorder">Pesanan</h5>
                                                 <h5 class="card-header card-header-datapreorder" id="potime"></h5>
@@ -249,6 +249,7 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                                             <th scope="col">Nama</th>
                                                             <th scope="col">Email</th>
                                                             <th scope="col">Bukti Bayar</th>
+                                                            <th scope="col"></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="table-data-po">
@@ -291,52 +292,10 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                
             </div>
                 
-            <?php } elseif ($poStatus['po_status'] == 2) { ?> 
-                
-                <div class="dashboard-wrapper">
-            <div class="container-fluid  dashboard-content">
-                <!-- ============================================================== -->
-                <!-- pageheader -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-header">
-                            <h2 class="pageheader-title">Pengambilan </h2>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- end pageheader -->
-                <!-- ============================================================== -->
-             
-                    <div class="row">
-                        <!-- ============================================================== -->
-                        <!-- validation form -->
-                        <!-- ============================================================== -->
-                        <img src="../assets/images/qr-code.png" height="200" width="200">
-
-                        <!-- ============================================================== -->
-                        <!-- end validation form -->
-                        <!-- ============================================================== -->
-                    </div>
-                    
-                    <br>
-
-
-                    <div class="row">
-
-                        <div class="col-md-1">
-                        <label for="inputText3" class="col-form-label">Kode :</label>
-                        </div>
-                        <div class="col-md-1.5">
-                        <div class="p-1 mb-2 bg-dark text-white">Xcspyfz</div>
-                        </div>
-
-                    </div>
-            </div>
-        </div>
-                
-            <?php } ?>
+            <?php } elseif ($poStatus['po_status'] == 2) {
+				header("Location: scanner.php");
+			}
+			?>
             <!-- ============================================================== -->
             <!-- footer -->
             <!-- ============================================================== -->

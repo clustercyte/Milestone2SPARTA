@@ -99,7 +99,7 @@ if (($userData['user_auth'] != 0)or(!isset($_SESSION['loggedInId']))or(isset($_G
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                                         
-                                        <div class="card">
+                                        <div class="card" style="overflow: scroll">
                                             <div class="d-flex justify-content-between">
                                                 <h5 class="card-header card-header-datapreorder">Result</h5>
                                             </div>
