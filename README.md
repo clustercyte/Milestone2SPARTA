@@ -74,15 +74,8 @@ Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosti
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
 * [QRCode Generator](https://github.com/chillerlan/php-qrcode) - Used to generate QRCode
 * [QRCode Decoder](https://github.com/cirocosta/qcode-decoder/) - Used to decode QRCode
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Versioning
 
@@ -90,7 +83,10 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Kontributor
 
-* Front-End: **M** - [PurpleBooth](https://github.com/PurpleBooth)
-* Back-End: 
+Lihat para [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
 
-Lihat juga [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
+## Ucapan Terima Kasih
+
+* Untuk sumber inspirasi kode program yang digunakan 
+* Untuk konsultan dari Panitia SPARTA 2018
+* dan lain-lain
