@@ -82,12 +82,13 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h2 class="pageheader-title">E-commerce Product Invoice </h2>
+                                <h2 class="pageheader-title">Bukti Bayar</h2>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Invoice</li>
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">Data Pre Order</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Bukti Bayar</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -106,7 +107,6 @@ if (isset($_GET['delete']) && !empty($_GET['delete'])) {
                                             <img src="../../assets/images/payments/Screenshot_20180121_183200.png"; class="img-fluid" style="max-width:200px;"> 
                                         </div>
                                         <div class="col-sm-6">
-                                            <h5 class="mb-3">To:</h5>
                                             <h3 class="text-dark mb-1">Nama: <?php echo $userPoData['cs_name']; ?></h3>  
                                             <div>Email: <?php echo $userPoData['cs_email']; ?></div>
                                             <div>Line: <?php echo $userPoData['cs_line']; ?></div>

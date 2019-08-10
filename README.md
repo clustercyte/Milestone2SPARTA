@@ -3,10 +3,10 @@ Tugas Milestone 2 SPARTA Kelompok C (7)
 
 Kelompok C membuat sebuah website untuk menyelesaikan masalah yang ada di Tim Phiwiki saat ini. Website ini merupakan implementasi sistem penjualan buku Phiwiki secara online.
 
-## Getting Started
-Berikut ini merupakan spesifikasi yang meliputi bahasa, platfrom, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
+## Pendahuluan
+Berikut ini merupakan spesifikasi yang meliputi bahasa, platform, dan server dalam pembuatan website. Selain itu, terdapat langkah instalasi untuk melakukan pengembangan dan pengujian bagi unsur dalam website. Terdapat pula catatan mengenai hosting pada server online untuk aplikasi web yang telah dibuat. 
 
-### Prerequisites
+### Prasyarat
 
 * Platform yang digunakan untuk menulis kode ialah **Text Editor**
 * Server web yang digunakan adalah **XAMPP**
@@ -33,11 +33,22 @@ Catatan: Perlu dilakukan penyesuaian kebutuhan bergantung dengan jenis versi PHP
 
 Adapun langkah berikutnya setelah pengunduhan XAMPP adalah memulai konfigurasi environment sever web.
 
+
 **Langkah konfigurasi XAMPP pada Windows 10:**
 
 Pada Control Panel XAMPP terdapat tiga bagian utama dimana semua jenis **Service** pada **Module** yang dapat dijalankan melalui button **Start**. 
+1. Ketika sebuah service mulai dijalankan, terdapat informasi mengenai process ID serta port TCP/IP pada bagian kanan.
+```
+Untuk default Apache menggunakan port TCP/IP 80 dan 443 sementara MySQL menggunakan port TCP/IP 3306
+```
+2. Mengatur button yang terlibat
+* Button **Admin** berguna untuk memperoleh akses pada dashboard administrasi pada setiap service dan memastikan bahwa sistem bekerja dengan benar
+* Button **Config** untuk melakukan konfigurasi modul secara otomatis ketika launch XAMPP
+* Button **Netstat** untuk memunculkan service yang sedang mengakses jaringan, process ID, serta informasi port TCP/IP
 
-## Running the tests
+Selain itu, terdapat pintasan untuk mengakses folder instalasi XAMPP, service, dan keluar dari aplikasi. Bahkan terdapat bagian logs untuk mengetahui detail perubahan modul yang bekerja sehingga dapat memeroleh pesan kesalahan yang mungkin terjadi.
+
+## Menjalankan pengujian
 
 Explain how to run the automated tests for this system
 
@@ -59,7 +70,7 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosting mirip dengan cara melakukan deploy di server lokal, hanya saja ada sedikit perbedaan untuk penamaan direktorinya.
 
 ## Built With
 
@@ -75,18 +86,9 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Kontributor
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* Front-End: **M** - [PurpleBooth](https://github.com/PurpleBooth)
+* Back-End: 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+Lihat juga [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
