@@ -69,7 +69,7 @@ Pada **Registration Form**, terdapat data username dan password yang harus diisi
 1. Melakukan Log in dengan mengisi username=**z** dan password=**z** kemduian memilih button **Sign In**
 2. Membuka penjualan dengan **Buat PO Baru** kemudian pengisi nama PO dan batas tanggal
 3. Melihat Data Pre-Order yang mencakup **Data PO** dan **Data Lunas**
-Pada **Data PO**, Admin akan melakukan **Konfirmasi** jika bukti pembayaran valid atau **Hapus** jika bukti pembayaran tidak valid
+Pada **Data PO**, Admin akan melakukan **Konfirmasi** jika bukti pembayaran valid atau **Hapus** jika bukti pembayaran tidak valid.
 Pada **Data Lunas**, Admin akan melihat data pembeli yang bisa mengambil buku 
 4. Membaca QR Code pada Tab **Scanner** sebelum memberikan buku kepada pembeli
 5. Keluar dari akun melalui Button berwarna abu-abu di sebelah kiri atas dashboard, kemudian memilih **Log Out**
@@ -94,6 +94,7 @@ Back-End:
 
 Front-End:
 * Shafa Amarsya
+* M. Zunan
 * Kevin A.
 * Rafi A.
 * Annisa R.
