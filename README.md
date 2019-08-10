@@ -86,6 +86,19 @@ Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosti
 * [QRCode Decoder](https://github.com/cirocosta/qcode-decoder/) - Untuk membaca QRCode
 
 ## Kontributor
+Pembagian Tugas Secara Spesifik:
+Back-End: 
+* Muhammad Muslim M.
+* Yonatan V.
+* Tony Eko Y.
+
+Front-End:
+* Shafa Amarsya
+* Kevin A.
+* Rafi A.
+* Annisa R.
+* Madiha A.
+* M. Fauzan A.
 
 Lihat para [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
 
