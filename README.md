@@ -50,19 +50,15 @@ Selain itu, terdapat pintasan untuk mengakses folder instalasi XAMPP, service, d
 
 ## Menjalankan pengujian
 
-Explain how to run the automated tests for this system
+Pengujian dilakukan secara manual yaitu satu per satu sesuai dengan prosedur yang benar untuk membeli buku
 
-### Break down into end to end tests
+### Detail tiap pengujian
 
-Explain what these tests test and why
+1. Melakukan Registrasi melalui **Create An Account**
+Pada **Registration Form**, terdapat data username dan password yang harus diisi kemudian memilih button **Register My Account**
 
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
+2. Melakukan Log in dengan mengisi username dan password yang benar kemduian memilih button **Sign In*
+3. 
 
 ```
 Give an example
@@ -72,14 +68,11 @@ Give an example
 
 Untuk deployment menggunakan hosting dari salah satu provider. Tahap-tahap hosting mirip dengan cara melakukan deploy di server lokal, hanya saja ada sedikit perbedaan untuk penamaan direktorinya.
 
-## Built With
+## Program dan Framework yang Terlibat
 
-* [QRCode Generator](https://github.com/chillerlan/php-qrcode) - Used to generate QRCode
-* [QRCode Decoder](https://github.com/cirocosta/qcode-decoder/) - Used to decode QRCode
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+* [Bootsrap](https://getbootstrap.com/) - Framework yang digunakan
+* [QRCode Generator](https://github.com/chillerlan/php-qrcode) - Untuk generator QRCode
+* [QRCode Decoder](https://github.com/cirocosta/qcode-decoder/) - Untuk membaca QRCode
 
 ## Kontributor
 
