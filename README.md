@@ -98,6 +98,7 @@ Front-End:
 * Rafi A.
 * Annisa R.
 * Madiha A.
+* Naufal A.
 * M. Fauzan A.
 
 Lihat para [contributors](https://github.com/your/project/contributors) yang aktif membantu proses pengerjaan projek ini.
